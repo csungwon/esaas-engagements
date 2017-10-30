@@ -23,7 +23,8 @@ Scenario: not logged in so should see login with Github from create page
 Scenario: login with Github from orgs page and redirect to orgs
   Given I am on the apps page
   And I follow "Orgs"
-  And I follow "Log in with GitHub"
+  Then I should be on the login page
+  Given I follow "Log in with GitHub"
   Then I should be on the orgs page
   
 Scenario: login with Github from users page and redirect to users
@@ -37,3 +38,15 @@ Scenario: login with Github from create page and redirect to create
   Given I follow "Create"
   And I follow "Log in with GitHub"
   Then I should be on the create page
+  
+  
+# Started GET "/auth/github" for 136.152.142.38 at 2017-10-30 02:44:12 +0000
+
+# Started GET "/auth/github/callback" for 136.152.142.38 at 2017-10-30 02:44:12 +0000
+# Cannot render console from 136.152.142.38! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+# Processing by SessionController#create as HTML
+# Started GET "/orgs" for 136.152.142.38 at 2017-10-30 02:44:12 +0000
+
+# Started GET "/login" for 136.152.142.38 at 2017-10-30 02:43:23 +0000
+# Cannot render console from 136.152.142.38! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+# Processing by SessionController#login

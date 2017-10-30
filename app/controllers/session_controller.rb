@@ -6,7 +6,15 @@ class SessionController < ApplicationController
     github_uid = request.env["omniauth.auth"]["info"]["nickname"]
     if (user = User.find_by_github_uid(github_uid))
       session[:user_id] = user.id
-      redirect_to apps_path
+      if @@name_path == "orgs" 
+        redirect_to orgs_path
+      elsif @@name_path == "users"
+       redirect_to users_path
+      elsif @@name_path == "create"
+        redirect_to creation_path
+      else
+        redirect_to apps_path
+      end
     else
       flash[:alert] = "No user with GitHub name '#{github_uid}'."
       redirect_to login_path

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-
+  @@name_path = nil
   def logged_in?
     redirect_to login_path and return unless
       (@current_user = User.find_by_id(session[:user_id])).kind_of?(User)

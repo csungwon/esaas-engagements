@@ -1,6 +1,8 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
-
+  
+  @@name_path = "orgs"
+  
   # GET /orgs
   # GET /orgs.json
   def index
