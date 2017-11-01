@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "Cucumber Features": {
     "coverage": {
@@ -1120,3 +1121,5 @@
     "timestamp": 1509518499
   }
 }
+=======
+>>>>>>> origin/login_github
