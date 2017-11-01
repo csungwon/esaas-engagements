@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20171101032459) do
     t.string   "preferred_contact"
     t.string   "type"
     t.string   "sid"
-    t.string   "typeA"
+    t.integer  "type_user"
     t.string   "typeUser"
   end
 

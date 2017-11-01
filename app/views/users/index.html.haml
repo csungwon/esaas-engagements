@@ -1,5 +1,7 @@
 %h1 Users
 
+= link_to 'New User', new_user_path, :class => 'btn btn-success'
+
 %table.table.table-condensed
   %thead
     %tr
@@ -19,4 +21,4 @@
         %td= user.typeUser
         %td= link_to 'Edit', edit_user_path(user), :class => 'btn btn-primary'
 
-= link_to 'New User', new_user_path, :class => 'btn btn-success'
+
