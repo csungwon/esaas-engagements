@@ -6,6 +6,10 @@ Given(/^I use provider github$/) do
   visit "/auth/github"
 end
 
-Given(/^I am signed in with provider "([^"]*)"$/) do |arg1|
-  visit "/auth/github/callback"
+Given(/^I am visiting the provider "([^"]*)"$/) do |arg1|
+  visit "/#{arg1.downcase}"
+end
+
+Given(/^I want to go to orgs$/) do 
+  visit "/orgs"
 end

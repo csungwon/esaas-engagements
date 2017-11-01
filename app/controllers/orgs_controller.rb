@@ -1,26 +1,31 @@
 class OrgsController < ApplicationController
+  print "OOOOO1"
   before_action :set_org, only: [:show, :edit, :update, :destroy]
-  
-  @@name_path = "orgs"
   
   # GET /orgs
   # GET /orgs.json
   def index
+    @@name_path = "orgs"
+    print " Index Orgs "
     @orgs = Org.all.includes(:apps)
+    
   end
 
   # GET /orgs/new
   def new
+    print " New Orgs "
     @org = Org.new
   end
 
   # GET /orgs/1/edit
   def edit
+    print " Edit Orgs "
   end
 
   # POST /orgs
   # POST /orgs.json
   def create
+    print " Create Orgs "
     @org = Org.new(org_params)
 
     respond_to do |format|
@@ -37,6 +42,7 @@ class OrgsController < ApplicationController
   # PATCH/PUT /orgs/1
   # PATCH/PUT /orgs/1.json
   def update
+    print "update Orgs "
     respond_to do |format|
       if @org.update(org_params)
         format.html { redirect_to orgs_path, notice: 'Org was successfully updated.' }
@@ -51,6 +57,7 @@ class OrgsController < ApplicationController
   # DELETE /orgs/1
   # DELETE /orgs/1.json
   def destroy
+    print "destroy orgs "
     @org.destroy
     respond_to do |format|
       format.html { redirect_to orgs_url, notice: 'Org was successfully destroyed.' }
