@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101022139) do
+ActiveRecord::Schema.define(version: 20171101032459) do
 
   create_table "apps", force: :cascade do |t|
     t.integer  "org_id"
@@ -103,6 +103,8 @@ ActiveRecord::Schema.define(version: 20171101022139) do
     t.string   "preferred_contact"
     t.string   "type"
     t.string   "sid"
+    t.string   "typeA"
+    t.string   "typeUser"
   end
 
 end
