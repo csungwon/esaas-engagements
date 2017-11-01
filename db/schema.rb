@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021062049) do
+ActiveRecord::Schema.define(version: 20171101022139) do
 
   create_table "apps", force: :cascade do |t|
     t.integer  "org_id"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 20171021062049) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "preferred_contact"
+    t.string   "type"
+    t.string   "sid"
   end
 
 end
