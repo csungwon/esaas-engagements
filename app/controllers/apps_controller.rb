@@ -1,12 +1,11 @@
 class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
+
   skip_before_filter :logged_in?, :only => :index
-  @@name_path = "apps"
-  
   # GET /apps
   # GET /apps.json
   def index
-    
+    @current_user = User.find_by_id(session[:user_id])
     @apps = App.all
     respond_to do |format|
       format.json { render :json => @apps.featured }

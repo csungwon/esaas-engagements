@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   @@name_path = nil
   
   def logged_in?
-    print "GOTTTTTT"
-    @origin
+    current_uri = request.env['PATH_INFO']
+    @@name_path = current_uri
     redirect_to login_path and return unless
       (@current_user = User.find_by_id(session[:user_id])).kind_of?(User)
   end

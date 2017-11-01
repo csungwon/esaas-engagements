@@ -43,7 +43,6 @@ Scenario: login with Github from orgs page and redirect to orgs
   Given I am not logged in
   And I am on the apps page
   And I follow "Orgs"
-  #And I am visiting the provider "orgs"
   And I follow "Log in with GitHub"
   Then I should be on the orgs page
 
@@ -62,3 +61,21 @@ Scenario: login with Github from create page and redirect to create
   And I follow "Log in with GitHub"
   Then I should be on the create page
   
+Scenario: login with Github from create page, logout, login back and redirect to create
+  Given I am not logged in
+  And I am on the apps page
+  And I follow "Create"
+  And I follow "Log in with GitHub"
+  And I am not logged in
+  And I follow "Log in with GitHub"
+  Then I should be on the create page
+  
+Scenario: login with Github from create page, after visiting orgs and users
+  Given I am not logged in
+  And I am on the apps page
+  And I follow "Create"
+  And I follow "Orgs"
+  And I follow "Users"
+  And I follow "Create"
+  And I follow "Log in with GitHub"
+  Then I should be on the create page

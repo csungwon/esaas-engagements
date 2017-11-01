@@ -1,7 +1,5 @@
 class CreationController < ApplicationController
-    print "CCCCC1"
     
-    @@name_path = "create"
     def app_params
         params.require(:app).permit(:name, :description, :deployment_url, :repository_url, :code_climate_url, :org_id, :status, :comments)
     end 
