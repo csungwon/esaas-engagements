@@ -26,39 +26,34 @@ Background: Logged in
     And I follow "Users"
 
 Scenario: Can create a User with a type: student or staff:
-    Given I press "New User"
+    Given I follow "New User"
     Then I should see "Type"
     And I should see "SID"
 
 Scenario: Users page should display type and id information:
-    Then I should see "Type"
-    And I should see "SID"
-
-Scenario: Users page should display type and id information:
-    Given I press "New User"
     Then I should see "Type"
     And I should see "SID"
 
 Scenario: Can create a User as a student with SID:
-    Given I press "New User"
+    Given I follow "New User"
     When I fill in the following:
-        | User Name              | fake name  |
-        | User E-mail address    | fake addr  |
-        | Type                   | Student    |
-        | SID                    | 11111111   |
+        | name              | fake name  |
+        | email             | fake addr  |
+        | Type of user      | Student    |
+        | SID               | 11111111   |
     And I press "Save"
-    And I should be on the "Users" page
+    And I should be on the users page
     And I should see "fake name" has type "Student"
     And I should see "fake name" has SID "11111111"
 
 Scenario: Can create a User that is a Staff:
-    Given I press "New User"
-    When I fill in the following:
-        | User Name              | fake name  |
+    Given I follow "New User"
+    And I fill in the following:
+        | User Name              | typeUse  |
         | User E-mail address    | fake addr  |
-        | Type                   | Staff      |
+        | Type of user           | Staff      |
     And I press "Save"
-    And I should be on the "Users" page
+    And I should be on the users page
     And I should see "fake name" has type "Staff"
 
 Scenario: Edit form for Users has Type and SID fields:
@@ -72,6 +67,8 @@ Scenario: Can edit Users to add Type and SID:
         | Type                   | Student    |
         | SID                    | 0          |
     And I press "Save"
-    And I should be on the "Users" page
+    And I should be on the users page
     And I should see "user2" has type "Student"
     And I should see "user2" has SID "0"
+
+# Add tests for create

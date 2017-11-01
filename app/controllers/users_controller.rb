@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       require(:user).
       permit(:name,:email,:preferred_contact,:github_uid,:typeUser,:sid)
   end
-
+  
 
 end
 
