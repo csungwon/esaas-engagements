@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "Cucumber Features": {
     "coverage": {
@@ -242,6 +241,18 @@
         null,
         1,
         null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
         null,
         null,
         null,
@@ -1118,8 +1129,6 @@
         null
       ]
     },
-    "timestamp": 1509518499
+    "timestamp": 1509520165
   }
 }
-=======
->>>>>>> origin/login_github
