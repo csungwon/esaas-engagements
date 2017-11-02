@@ -36,11 +36,12 @@ Scenario: Users page should display type and id information:
 
 Scenario: Can create a User as a student with SID:
     Given I follow "New User"
-    When I fill in the following:
-        | name              | fake name  |
-        | email             | fake addr  |
-        | Type of user      | Student    |
-        | SID               | 11111111   |
+    When I fill in the fields as follows:
+        | field               | value      |
+        | User Name           | fake name  |
+        | User E-mail address | fake addr  |
+        | Type of user        | Student    |
+        | SID                 | 11111111   |
     And I press "Save"
     And I should be on the users page
     And I should see "fake name" has type "Student"
@@ -48,8 +49,9 @@ Scenario: Can create a User as a student with SID:
 
 Scenario: Can create a User that is a Staff:
     Given I follow "New User"
-    And I fill in the following:
-        | User Name              | typeUse  |
+    When I fill in the fields as follows:
+        | field                  | value      |
+        | User Name              | fake name  |
         | User E-mail address    | fake addr  |
         | Type of user           | Staff      |
     And I press "Save"
