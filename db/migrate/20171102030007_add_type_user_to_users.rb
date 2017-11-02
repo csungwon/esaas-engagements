@@ -1,5 +1,5 @@
 class AddTypeUserToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :typeUser, :string
+    add_column :users, :type_user, :string
   end
 end
