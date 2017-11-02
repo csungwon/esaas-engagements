@@ -1,5 +1,5 @@
 class CreationController < ApplicationController
-
+    
     def app_params
         params.require(:app).permit(:name, :description, :deployment_url, :repository_url, :code_climate_url, :org_id, :status, :comments)
     end 
@@ -13,12 +13,14 @@ class CreationController < ApplicationController
     end
     
     def new
+        print " New Create "
         @user = User.new
         @org = Org.new
         @app = App.new
     end
 
     def  create
+        print " Create Create "
         # byebug
         # create user, check error. if error. re-render 
         # create the org, check error, if error, DELETE USER@@@@
