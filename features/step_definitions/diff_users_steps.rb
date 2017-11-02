@@ -17,7 +17,6 @@ When /^I fill in the fields as follows:$/ do |table|
    end
  end
 end
-    
 
 Then /^I should see "(.*)" has type "(.*)"$/ do |username, type|
     find('tr', text: username.to_s).should have_content(type.to_s)
@@ -27,6 +26,6 @@ Then /^I should see "(.*)" has SID "(.*)"$/ do |username, sid|
     find('tr', text: username.to_s).should have_content(sid.to_s)
 end
 
-# Given(/^I press New User$/) do
-#     pending
-# end
+Then /^I press "(.*)" for "(.*)"$/ do |content, username|
+    find('tr', text: username.to_s).click_link(content.to_s)
+end
