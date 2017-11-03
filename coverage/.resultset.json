@@ -1,14 +1,14 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/ubuntu/workspace/app/config/environment.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/config/application.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/application.rb": [
         1,
         null,
         1,
@@ -45,12 +45,12 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/boot.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/config/environments/test.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/environments/test.rb": [
         1,
         null,
         null,
@@ -94,7 +94,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/assets.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -107,7 +107,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/backtrace_silencers.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -116,18 +116,18 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/cookies_serializer.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/config/initializers/filter_parameter_logging.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/config/initializers/inflections.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -145,13 +145,13 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/mime_types.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/omniauth.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/omniauth.rb": [
         1,
         1,
         1,
@@ -164,12 +164,12 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/initializers/session_store.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/config/initializers/wrap_parameters.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -185,7 +185,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/config/routes.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/config/routes.rb": [
         1,
         null,
         1,
@@ -217,7 +217,7 @@
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/features/support/paths.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/support/paths.rb": [
         null,
         null,
         null,
@@ -275,7 +275,7 @@
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/features/support/selectors.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/support/selectors.rb": [
         null,
         null,
         null,
@@ -321,7 +321,7 @@
         null,
         1
       ],
-      "/home/ubuntu/workspace/app/features/step_definitions/comment_steps.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/step_definitions/comment_steps.rb": [
         1,
         null,
         1,
@@ -334,7 +334,7 @@
         2,
         null
       ],
-      "/home/ubuntu/workspace/app/features/step_definitions/create_steps.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/step_definitions/create_steps.rb": [
         1,
         1,
         null,
@@ -392,18 +392,9 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/features/step_definitions/diff_users_steps.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/step_definitions/diff_users_steps.rb": [
         1,
-        null,
         3,
-        9,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null,
         9,
         3,
         null,
@@ -412,7 +403,6 @@
         null,
         null,
         null,
-        null,
         1,
         3,
         null,
@@ -425,7 +415,7 @@
         2,
         null
       ],
-      "/home/ubuntu/workspace/app/features/step_definitions/search_steps.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/step_definitions/search_steps.rb": [
         1,
         null,
         16,
@@ -459,7 +449,7 @@
         14,
         null
       ],
-      "/home/ubuntu/workspace/app/features/step_definitions/web_steps.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/features/step_definitions/web_steps.rb": [
         null,
         null,
         null,
@@ -724,7 +714,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/models/app.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/models/app.rb": [
         1,
         1,
         1,
@@ -751,7 +741,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/models/org.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/models/org.rb": [
         1,
         1,
         1,
@@ -762,7 +752,7 @@
         184,
         null
       ],
-      "/home/ubuntu/workspace/app/app/models/user.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/models/user.rb": [
         1,
         null,
         269,
@@ -772,7 +762,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/session_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/session_controller.rb": [
         1,
         1,
         1,
@@ -805,7 +795,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/application_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/application_controller.rb": [
         1,
         null,
         1,
@@ -822,7 +812,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/helpers/application_helper.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -851,11 +841,11 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/helpers/comments_helper.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/helpers/comments_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/app/helpers/engagements_helper.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/helpers/engagements_helper.rb": [
         1,
         1,
         0,
@@ -870,11 +860,11 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/helpers/orgs_helper.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/helpers/orgs_helper.rb": [
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/apps_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/apps_controller.rb": [
         1,
         1,
         null,
@@ -958,7 +948,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/models/engagement.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/models/engagement.rb": [
         1,
         1,
         1,
@@ -982,12 +972,12 @@
         194,
         null
       ],
-      "/home/ubuntu/workspace/app/app/models/comment.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/models/comment.rb": [
         1,
         1,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/comments_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/comments_controller.rb": [
         1,
         1,
         0,
@@ -1033,7 +1023,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/orgs_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/orgs_controller.rb": [
         1,
         1,
         null,
@@ -1107,7 +1097,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/creation_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/creation_controller.rb": [
         1,
         null,
         1,
@@ -1166,7 +1156,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/users_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -1213,7 +1203,7 @@
         null,
         null
       ],
-      "/home/ubuntu/workspace/app/app/controllers/search_controller.rb": [
+      "/home/ubuntu/workspace/esaas-engagements/app/controllers/search_controller.rb": [
         1,
         null,
         1,
