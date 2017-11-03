@@ -76,10 +76,17 @@ end
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
 #
+# When /^(?:|I )fill in the following:$/ do |fields|
+#   fields.rows_hash.each do |name, value|
+#     When %{I fill in "#{name}" with "#{value}"}
+#   end
+# end
+
 When /^(?:|I )fill in the following:$/ do |fields|
-  fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
-  end
+  steps %Q{
+    fields.rows_hash.each do |name, value|
+      fill_in(field, :with => value)
+  }
 end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
@@ -111,6 +118,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+  print page.find('h2').text
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should

@@ -83,3 +83,4 @@ Scenario: User can clear the form
     And I fill in "User Name" with "Some Name"
     And I follow "Cancel"
     Then the field "User Name" should be empty
+    

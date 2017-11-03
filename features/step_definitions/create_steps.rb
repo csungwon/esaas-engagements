@@ -9,11 +9,11 @@ Then /^creation should fail with "(.*)"$/ do |msg|
   }
 end
 
-Given(/^I am logged in on the "([^"]*) page$/) do |arg|
-  visit "/org"
-  click_link "Log in with GitHub"
-  visit "/org"
-end
+# Given(/^I am logged in on the "([^"]*) page$/) do |arg|
+#   visit "/org"
+#   click_link "Log in with GitHub"
+#   visit "/org"
+# end
 
 Then /^the field "(.*)" should be empty$/ do |field|
   expect(find_field("#{field}").value).to be nil
@@ -44,7 +44,13 @@ When /^I fill in the "(.*)" fields as follows:$/ do |fieldset, table|
     when /^(un)?checked$/
       steps %Q{When I #{$1}check "#{t[:field]}"}
     else
-      steps %Q{When I fill in "#{t[:field]}" with "#{t[:value]}"}
+      if "#{t[:field]}" == "Type of user"
+        steps %Q{I fill in the following:
+         | Type of user      | "#{t[:field]}"  |
+        }
+      else
+        steps %Q{When I fill in "#{t[:field]}" with "#{t[:value]}"}
+      end
     end
   end
 end
