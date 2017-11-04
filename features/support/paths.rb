@@ -18,6 +18,12 @@ module NavigationHelpers
 
     when /^the create page$/
       then creation_path
+      
+    when /^the Users page$/
+      then users_path
+      
+    when /^the Orgs page$/
+      then orgs_path
 
     when /^the app details page for "(.*)"$/
       then app_path(App.find_by_name($1))
@@ -39,6 +45,8 @@ module NavigationHelpers
     when /^the new user page$/ then new_user_path
 
     when /^the edit user page for user id: "(.*)"$/ then edit_user_path($1)
+
+    when /^the edit org page for org id: "(.*)"$/ then edit_org_path($1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

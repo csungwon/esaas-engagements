@@ -18,10 +18,10 @@ Background: Logged in
         | org3 | 1          |
 
     And the following users exist:
-        | name  | github_uid      | email         |
-        | user1 | esaas_developer | test@user.com |
-        | user2 |                 | test@user.com |
-        | user3 |                 | test@user.com |
+        | name  | github_uid      | email          |
+        | user1 | esaas_developer | test1@user.com |
+        | user2 |                 | test2@user.com |
+        | user3 |                 | test3@user.com |
 
     And I'm logged in on the orgs page
     And I follow "Users"
@@ -95,7 +95,7 @@ Scenario: User can submit a create form that includes user type and SID for Stud
     | Preferred Contact   | 555-555-5555          |
     | Github uid          | fakegithubuid         |
     | Type of user        | Student               |
-    | SID                 | 11111111              | 
+    | SID                 | 11111111              |
   And I fill in the "Org Information" fields as follows:
     | field                     | value                  |
     | Organization Name         | Group 20               |
@@ -115,7 +115,7 @@ Scenario: User can submit a create form that includes user type and SID for Stud
   And I press "Submit"
   Then I should be on the app details page for "Fake app"
   Then I should see "User, Org, and App were successfully created"
-   
+
 Scenario: User can submit a create form that includes user type and SID for Staff
   #Story ID: #152298593
   And I follow "Create"
