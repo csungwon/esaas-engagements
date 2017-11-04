@@ -76,17 +76,10 @@ end
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
 #
-# When /^(?:|I )fill in the following:$/ do |fields|
-#   fields.rows_hash.each do |name, value|
-#     When %{I fill in "#{name}" with "#{value}"}
-#   end
-# end
-
 When /^(?:|I )fill in the following:$/ do |fields|
-  steps %Q{
-    fields.rows_hash.each do |name, value|
-      fill_in(field, :with => value)
-  }
+  fields.rows_hash.each do |name, value|
+    When %{I fill in "#{name}" with "#{value}"}
+  end
 end
 
 When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
@@ -105,6 +98,11 @@ When /^(?:|I )choose "([^"]*)"$/ do |field|
   choose(field)
 end
 
+When /^I choose "(.*)" for "(.*)"$/ do |value, field|
+  choose(field, option: value)
+end
+
+
 When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
   attach_file(field, File.expand_path(path))
 end
@@ -118,7 +116,6 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
 end
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
-  print page.find('h2').text
   regexp = Regexp.new(regexp)
 
   if page.respond_to? :should
@@ -260,4 +257,5 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
 

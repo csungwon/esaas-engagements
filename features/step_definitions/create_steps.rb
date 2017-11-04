@@ -9,12 +9,6 @@ Then /^creation should fail with "(.*)"$/ do |msg|
   }
 end
 
-# Given(/^I am logged in on the "([^"]*) page$/) do |arg|
-#   visit "/org"
-#   click_link "Log in with GitHub"
-#   visit "/org"
-# end
-
 Then /^the field "(.*)" should be empty$/ do |field|
   expect(find_field("#{field}").value).to be nil
 end
