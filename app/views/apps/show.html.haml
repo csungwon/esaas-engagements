@@ -63,7 +63,7 @@
         %td= mail_to(engagement.contact.email, engagement.contact.name) if engagement.contact
         %td= [engagement.coach.try(:name),engagement.coaching_org.try(:name)].join(', ')
         %td= engagement.team_number
-        %td= engagement.student_names
+        %td <div class="members"><div class="member1">#{engagement.users[0].try(:name)} </div><div class="member2">#{engagement.users[1].try(:name)}</div><div class="member3">#{engagement.users[2].try(:name)}</div><div class="member4">#{engagement.users[3].try(:name)}</div><div class="member5">#{engagement.users[4].try(:name)}</div><div class="member6">#{engagement.users[5].try(:name)}</div></div>
         %td= link_to image_tag('octocat-gray.png'), engagement.prototype_deployment_url, :target => '_blank'
         %td= link_to image_tag('video.png'), engagement.screencast_url, :target => '_blank'
         %td= link_to image_tag('presentation.png'), engagement.presentation_url, :target => '_blank'
