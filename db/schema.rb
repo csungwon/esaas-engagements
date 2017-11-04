@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104061556) do
+ActiveRecord::Schema.define(version: 20171104064324) do
 
   create_table "apps", force: :cascade do |t|
     t.integer  "org_id"
@@ -38,11 +38,6 @@ ActiveRecord::Schema.define(version: 20171104061556) do
   end
 
   add_index "comments", ["app_id"], name: "index_comments_on_app_id"
-
-  create_table "developers_engagements", id: false, force: :cascade do |t|
-    t.integer "developer_id",  null: false
-    t.integer "engagement_id", null: false
-  end
 
   create_table "engagements", force: :cascade do |t|
     t.integer  "app_id"
