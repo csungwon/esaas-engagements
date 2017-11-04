@@ -25,11 +25,11 @@ module NavigationHelpers
     when /^the Orgs page$/
       then orgs_path
 
-    when /^the app details page for "(.*)"$/ then app_path(App.find_by_name($1))
+    when /^the app details page for "(.*)"$/
+      then app_path(App.find_by_name($1))
 
-    when /^Engagement page for an engagement with an app "(.*)" and start date "(.*)"$/ then pending
-      
-    when /^the app details page for "(.*)"$/ then app_path(App.find_by_name($1))
+    when /^the app details page for "(.*)"$/
+      then app_path(App.find_by_name($1))
 
     when /^the feedback form page for engagement id "(.*)" and iteration id "(.*)"$/ \
       then feedback_form_path(Engagement.find_by_id($1), Iteration.find_by_id($2))
@@ -39,6 +39,12 @@ module NavigationHelpers
 
     when /^the edit engagement iteration page for engagement id "(.*)" and iteration id "(.*)"$/ \
       then edit_engagement_iteration_path(Engagement.find_by_id($1), Iteration.find_by_id($2))
+
+    when /^the current iteration page$/ then current_iteration_path
+
+    when /^the new user page$/ then new_user_path
+
+    when /^the edit user page for user id: "(.*)"$/ then edit_user_path($1)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

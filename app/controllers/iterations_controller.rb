@@ -3,12 +3,19 @@ class IterationsController < ApplicationController
   before_action :set_iteration, :only => [:edit,:update,:destroy]
   before_action :set_engagement, :except => [:current_iteration, :get_customer_feedback]
 
-  def index ; end
+  def index
+    @stat = @engagement.summarize_customer_rating
+  end
 
   def new
     @iteration = @engagement.iterations.new
   end
-  def edit ; end
+
+  def edit
+    @feedback = JSON.parse(@iteration.customer_feedback)
+    rescue (Exception)
+      redirect_to engagement_iterations_path, alert: "Customer Feedback does not have editable format." 
+  end
 
   def create
     @iteration = @engagement.iterations.build(iteration_params)
@@ -20,7 +27,10 @@ class IterationsController < ApplicationController
   end
 
   def update
-    if @iteration.update(iteration_params)
+    feedback = feedback_params
+    @iteration.customer_feedback = feedback.to_json
+    new_end_date = params.require(:iteration).permit(:end_date)
+    if @iteration.save and @iteration.update(new_end_date)
       redirect_to engagement_iterations_path(@engagement), notice: 'Iteration was successfully updated.'
     else
       render :edit
@@ -56,7 +66,7 @@ class IterationsController < ApplicationController
         host = request.env["REQUEST_URI"].split("/")[2]
         url = "http://#{host}/feedback/#{eng.id}/#{iter.id}"
         FormMailer.send_form(eng.contact.name, eng.contact.email, url).deliver_now
-      end 
+      end
     end
     redirect_to current_iteration_path
   end
@@ -74,6 +84,13 @@ class IterationsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def iteration_params
     params.require(:iteration).permit(:customer_feedback, :end_date)
+  end
+
+  def feedback_params
+    params.require(:customer_feedback).permit(:duration, :demeanor,
+      :engaged, :engaged_text, :communication,
+      :communication_text, :understanding, :understanding_text,
+      :effectiveness, :effectiveness_text, :satisfied, :satisfied_text)
   end
 
 end
