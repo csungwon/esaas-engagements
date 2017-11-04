@@ -24,8 +24,8 @@ Scenario: user fills in information in new user page
     And I fill in "User Name" with "randomuser"
     And I fill in "User E-mail address" with "user1@user.com"
     And I press "Save"
-	Then I should see "User E-mail address has already been taken"
-	And I should not see "User successfully created."
+    Then I should see "User E-mail address has already been taken"
+    And I should not see "User successfully created."
 	
 Scenario: user fills in information in new user page
     Given I am on the Users page
@@ -33,16 +33,16 @@ Scenario: user fills in information in new user page
     And I fill in "User Name" with "new_user"
     And I fill in "User E-mail address" with "new_user@user.com"
     And I press "Save"
-	Then I should see "User successfully created."
-	And I should not see "User E-mail address has already been taken"
+    Then I should see "User successfully created."
+    And I should not see "User E-mail address has already been taken"
 	
 Scenario: user fills in information in new org page
     Given I am on the Orgs page
     When I follow "New Org"
     And I fill in "Org Name" with "org1"
     And I press "Save"
-	Then I should see "Org Name has already been taken"
-	And I should not see "Org was successfully created."
+    Then I should see "Org Name has already been taken"
+    And I should not see "Org was successfully created."
 	
 Scenario: user fills in information in new org page
     Given I am on the Orgs page
@@ -50,4 +50,4 @@ Scenario: user fills in information in new org page
     And I fill in "Org Name" with "new_org"
     And I press "Save"
     Then I should see "Org was successfully created."
-	Then I should not see "Org Name has already been taken"
+    Then I should not see "Org Name has already been taken"
