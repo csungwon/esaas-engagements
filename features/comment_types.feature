@@ -15,11 +15,13 @@ Background:
 	And I am logged in
 	And I follow "app1"
 
+# Story ID: 152689457
 Scenario: there are different comment types available
 	Then I should see "Contact Status"
 	And I should see "App Functionality"
 	And I should see "General"
 
+# Story ID: 152689457
 Scenario: User can edit and choose different comment types
 	Given I fill in "Write a comment..." with "This App is AWESOME!"
 	And I press "Post"
@@ -30,6 +32,7 @@ Scenario: User can edit and choose different comment types
 	And I check "App Functionality"
 	Then I should see "This App is AWESOME!"
 
+# Story ID: 152689457
 Scenario: User can group comments by type
 	Given the following comments exist:
 		| user 			  | body 						| comment_type 		|
