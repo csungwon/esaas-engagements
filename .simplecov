@@ -1,5 +1,4 @@
 SimpleCov.start 'rails' do
-	@filters = []
 	add_filter "/coverage/"
 	add_filter "bootstrap"
 	add_filter "/spec/"
@@ -11,5 +10,3 @@ SimpleCov.start 'rails' do
 	add_filter "/vendor/"
 	add_filter "/iterations/"
 end
-
-require 'minitest/autorun'

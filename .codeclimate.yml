@@ -5,12 +5,6 @@ engines:
     enabled: true
   duplication:
     enabled: true
-    config:
-      languages:
-      - ruby
-      - javascript
-      - python
-      - php
   rubocop:
     enabled: true
   flog:
