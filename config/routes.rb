@@ -27,4 +27,7 @@ Rails.application.routes.draw do
   
   get 'creation' => 'creation#new', :as => 'creation'
   post 'creation' => 'creation#create', :as => 'create_all'
+  
+  #needs some work probably
+  get '/apps/:app_id/engagements/:engagement_id/download' => 'engagements#download', :as => 'download'
 end
