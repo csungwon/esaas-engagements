@@ -19,16 +19,18 @@
           %div.comment-box
             %div.comment-header
               %div.username-time
-                %span.username= comment.username
+                %span.username= comment.user.name
                 %span.time= comment.created_at.strftime("%b %d, %Y at %l:%M:%S %p")
               %div.edit-delete
-                %span= link_to 'Edit', edit_app_comment_path(params[:id], comment.id)
+                %span= link_to 'Edit', edit_app_comment_path(@app, comment)
                 \|
-                %span= link_to 'Delete', app_comment_path(params[:id], comment.id), :method => :delete
+                %span= link_to 'Delete', app_comment_path(@app, comment), :method => :delete
 
             %div.comment-body= comment.content
 
   = form_tag app_comments_path(@app) do
+    = hidden_field :comment, :app_id, :value => @app.id
+    = hidden_field :comment, :user_id, :value => @current_user.id
     = label :comment, :content, "Write a comment..."
     = text_area :comment, 'content'
     %br= submit_tag 'Post', :class => "btn btn-primary"
