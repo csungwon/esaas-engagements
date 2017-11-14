@@ -28,10 +28,4 @@ Rails.application.routes.draw do
   get 'creation' => 'creation#new', :as => 'creation'
   post 'creation' => 'creation#create', :as => 'create_all'
   
-  #needs some work probably
-<<<<<<< HEAD
   get '/apps/:app_id/engagements/:engagement_id/export' => 'engagements#export', :as => 'export'
-=======
-  get '/apps/:app_id/engagements/:engagement_id/download' => 'engagements#download', :as => 'download'
->>>>>>> [feat] CSV button added and route config
-end
