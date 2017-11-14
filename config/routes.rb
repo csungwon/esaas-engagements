@@ -29,5 +29,5 @@ Rails.application.routes.draw do
   post 'creation' => 'creation#create', :as => 'create_all'
   
   #needs some work probably
-  get '/apps/:app_id/engagements/:engagement_id/download' => 'engagements#download', :as => 'download'
+  get '/apps/:app_id/engagements/:engagement_id/export' => 'engagements#export', :as => 'export'
 end
