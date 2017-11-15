@@ -1,4 +1,5 @@
-require 'CSV'
+require 'csv'
+require 'json'
 
 class EngagementsController < ApplicationController
   before_action :set_app
@@ -59,29 +60,14 @@ class EngagementsController < ApplicationController
     eng_hash = @engagement.as_json
     eng_hash["iterations"] = iterations_hash
     # make entire thing into a json
-    eng_json = eng_hash.to_json
-    json_converter = JsonConverter.new
-    csv = json_converter.generate_csv(eng_json)
-    # data=CSV.generate do |csv|
-    #   eng_hash.each do |h|
-    #     byebug
-    #     csv << "#{h[1]}"
-    #   end
-    # end
-
-    csv = convert_to_csv json, nil_substitute
-    headers_written = false
-
-    generated_csv = CSV.generate do |output|
-      csv.each do |row|
-        if headers_written === false && headers === true
-          output << row.keys && headers_written = true
-        end
-
-        output << row.values
-      end
-
-    send_data(data, :filename=> "eng_data.csv")
+    eng_params = JSON.parse(eng_hash.to_json)
+    keys = eng_params.keys
+    values = eng_params.values
+    file = CSV.generate do |csv|
+      csv << keys
+      csv << values
+    end
+    send_data(file, :filename => "engagement.csv")
   end
 
   private

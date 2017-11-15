@@ -35,7 +35,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'json_converter', '~> 0.0.0'
 gem 'json'
 gem 'figaro'
 gem 'haml'
