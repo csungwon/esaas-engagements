@@ -34,8 +34,11 @@
   = form_tag app_comments_path(@app) do
     = hidden_field :comment, :app_id, :value => @app.id
     = hidden_field :comment, :user_id, :value => @current_user.id
-    = label :comment, :content, "Write a comment..."
-    = text_area :comment, 'content'
+    %h4= "Write a comment"
+    - Comment.comment_types.each do |name, value|
+      = radio_button :comment, :comment_type, name, :checked => name == 'general'
+      = label :comment, :comment_type, name.humanize
+    = text_area :comment, :content
     %br= submit_tag 'Post', :class => "btn btn-primary"
 
 = link_to 'Edit', edit_app_path(@app)
