@@ -9,10 +9,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = Comment.create(comment_params)
-		unless @comment.update(comment_params)
-			@errors = @comment.errors.full_messages
-		end
-		redirect_to app_path(params[:app_id])
+		redirect_to app_path(@comment.app)
 	end
 
 	def edit
@@ -25,9 +22,9 @@ class CommentsController < ApplicationController
 
 	def update
 		unless @comment.update(comment_params)
-			@errors = @comment.erros.full_messages
+			render :edit and return
 		end
-		redirect_to app_path(@comment.app_id)
+		redirect_to app_path(@comment.app)
 	end
 
 private

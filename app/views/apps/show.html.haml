@@ -7,26 +7,23 @@
       = link_to image_tag(url + '/badges/coverage.svg'), url, :target => '_blank'
 
 .well#description
-  %label.control-label Description
+  %h4 Description
   %p= @app.description
 
 .well#comments
-  %label.control-label Comments
+  %h4 Comments
   %div.comment-list
-    %ul
-      -@app.comments.each do |comment|
-        %li
-          %div.comment-box
-            %div.comment-header
-              %div.username-time
-                %span.username= comment.user.name
-                %span.time= comment.created_at.strftime("%b %d, %Y at %l:%M:%S %p")
-              %div.edit-delete
-                %span= link_to 'Edit', edit_app_comment_path(@app, comment)
-                \|
-                %span= link_to 'Delete', app_comment_path(@app, comment), :method => :delete
-
-            %div.comment-body= comment.content
+    -@app.comments.each do |comment|
+      %div.media
+        %div.media-body
+          %h5.media-heading
+            = comment.user.name
+            %div.pull-right
+              = link_to 'Edit', edit_app_comment_path(@app, comment)
+              \|
+              = link_to 'Delete', app_comment_path(@app, comment), :method => :delete
+          %small.time= comment.created_at.strftime("%b %d, %Y at %l:%M:%S %p")
+          %div.comment-body= comment.content
 
   = form_tag app_comments_path(@app) do
     = hidden_field :comment, :app_id, :value => @app.id
