@@ -56,8 +56,10 @@
           - app.engagements.each do |engagement|
             %span #{engagement.id} (#{engagement.team_number}): #{engagement.student_names}
             %br
-        %td= link_to image_tag('deployment.png', size: '64x64'), app.deployment_url, :target => '_blank'
-        %td= link_to image_tag('octocat-gray.png', size: '64x64'), app.repository_url, :target => '_blank'
-        %td= link_to image_tag('codeclimate.png', size: '64x64'), app.code_climate_url, :target => '_blank'
-        %td= link_to('Edit', edit_app_path(app), :class => 'btn btn-primary')
-        %td= link_to 'Destroy', app_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
+        %td= link_to image_tag('deployment.png', size: '45x45', title: 'Deployment'), app.deployment_url, :target => '_blank'
+        %td= link_to image_tag('octocat-gray.png', size: '45x45', title: 'Repository'), app.repository_url, :target => '_blank'
+        %td= link_to image_tag('codeclimate.png', size: '45x45', title: 'CodeClimate'), app.code_climate_url, :target => '_blank'
+        %td{style: "white-space: nowrap"}
+          %div
+            = link_to('Edit', edit_app_path(app), :class => 'btn btn-primary')
+            = link_to 'Destroy', app_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'

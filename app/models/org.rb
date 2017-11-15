@@ -11,6 +11,6 @@ class Org < ActiveRecord::Base
   enum :comment_type => {}
 
   def address
-  	[address_line_1, address_line_2, city_state_zip].join("\n")
+  	[address_line_1, address_line_2, city_state_zip].join("\n").squish
   end
 end
