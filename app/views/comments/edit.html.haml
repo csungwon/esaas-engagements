@@ -1,15 +1,3 @@
 %h1 Edit Comment
 
-= form_tag app_comment_path(@comment.app, @comment), :method => :put do
-	%div.form-group
-		= label :comment, :comment_type, 'Comment Type'
-		%br
-		- Comment.comment_types.each do |name, value|
-			= radio_button :comment, :comment_type, name
-			= label :comment, :comment_type, name.humanize
-	%div.form-group
-		= label :comment, :content, 'Write New Comment'
-		= text_area :comment, :content, :class => 'form-control'
-
-	= submit_tag 'Submit', :class => 'btn btn-primary'
-	= link_to 'Back', app_path(@comment.app), :class => 'btn btn-primary'
+= render partial: 'form', locals: {commentable: @comment.commentable}

@@ -3,7 +3,7 @@
 %table.table.table-condensed
   %thead
     %tr
-      %th Name & Homepage Link
+      %th Name
       %th Contact name & email
       %th Description
       %th Apps
@@ -11,7 +11,7 @@
     %tbody
       - @orgs.each do |org|
         %tr{:class => ("defunct" if org.defunct)}
-          %td= link_to_unless org.url.blank?, org.name, org.url, :target => '_blank'
+          %td= link_to org.name, org
           %td= mail_to org.contact.email, org.contact.name
           %td= org.description
           %td= org.apps.map { |a| link_to a.name, app_path(a) }.join(', ').html_safe
