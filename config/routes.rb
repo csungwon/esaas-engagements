@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   # route /apps/:app_id/engagements/:engagement_id
   resources :apps do
     resources :engagements, :except => :index
-    resources :comments, :only => [:new, :create, :update], module: :apps
+    resources :comments, :only => [:create, :update], module: :apps
   end
   # route /engagements/:engagement_id/iterations/:iteration_id
   resources :engagements, :only => [] do # don't route engagements by themselves
     resources :iterations
   end
   resources :orgs do
-    resources :comments, :only => [:new, :create, :update], module: :orgs
+    resources :comments, :only => [:create, :update], module: :orgs
   end
   resources :comments, :only => [:edit, :destroy]
   resources :users, :only => [:index, :new, :edit, :create, :update]

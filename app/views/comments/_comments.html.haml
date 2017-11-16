@@ -5,12 +5,12 @@
       Show:
       - commentable.class.comment_types.each do |type, value|
         = check_box_tag type, value, true, :class => 'filter'
-        %span{:class => type}= type.humanize
+        = label_tag type, type.titleize, class: type
   :javascript
     $('.filter').change(function() { var klass = $(".comment-list ."+$(this).attr('name')).toggle(); });
   %div.comment-list
     -commentable.comments.each do |comment|
-      %div.media{class: comment.comment_type_name.to_s}
+      %div.media.comment{class: comment.comment_type_name.to_s}
         %div.media-body
           %h5.media-heading
             = comment.user.name
