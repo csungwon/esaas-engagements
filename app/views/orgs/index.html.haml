@@ -1,4 +1,6 @@
-%h1 Organizations
+%h1
+  Organizations
+  = link_to 'New Org', new_org_path, :class => 'btn btn-success pull-right'
 
 %table.table.table-condensed
   %thead
@@ -18,10 +20,5 @@
           %td{:style => 'white-space: nowrap'}
             = link_to 'Edit', edit_org_path(org), :title => "Last update: #{org.updated_at.strftime('%c')}", :class => 'btn btn-primary'
             = link_to 'Destroy', org, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
-
-%br
-
-= link_to 'New Org', new_org_path, :class => 'btn btn-primary'
-= link_to 'New User', new_user_path, :class => 'btn btn-primary'
 
 
