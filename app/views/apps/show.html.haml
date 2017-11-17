@@ -33,7 +33,7 @@
       %th{:colspan => 3} Assets
       %th
   %tbody
-    - @engagements.each_with_index do |engagement,indx|
+    - @app.engagements.each_with_index do |engagement,indx|
       %tr
         %td= link_to engagement.start_date.strftime('%F'), engagement_iterations_path(engagement)
         %td= mail_to(engagement.contact.email, engagement.contact.name) if engagement.contact

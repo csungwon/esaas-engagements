@@ -61,5 +61,5 @@
         %td= link_to image_tag('codeclimate.png', size: '45x45', title: 'CodeClimate'), app.code_climate_url, :target => '_blank'
         %td{style: "white-space: nowrap"}
           %div
-            = link_to('Edit', edit_app_path(app), :class => 'btn btn-primary')
-            = link_to 'Destroy', app_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
+            = link_to 'Edit', edit_app_path(app), :class => 'btn btn-primary'
+            = link_to 'Destroy', app_path(app), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'

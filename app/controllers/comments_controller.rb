@@ -6,8 +6,11 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @commentable.comments.new(comment_params)
 		@comment.user = @current_user
-		@comment.save
-		redirect_to @commentable
+		unless @comment.save
+			render "/#{@commentable.model_name.plural}/show",
+			locals: {"@#{@commentable.model_name.singular}": @commentable.reload, '@comment': @comment} and return
+		end
+		redirect_to @commentable, notice: "Comment was successfully created"
 	end
 
 	def destroy
@@ -19,7 +22,7 @@ class CommentsController < ApplicationController
 		unless @comment.update(comment_params)
 			render :edit and return
 		end
-		redirect_to @comment.commentable
+		redirect_to @comment.commentable, notice: "Comment was successfully created"
 	end
 
 private

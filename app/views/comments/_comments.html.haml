@@ -20,4 +20,4 @@
           %small.time= comment.created_at.strftime("%b %d, %Y at %l:%M:%S %p")
           %div.comment-body= comment.content
   = label :comment, :content, 'Write a comment...'
-  = render partial: 'comments/form', locals: {commentable: commentable, '@comment': Comment.new}
+  = render partial: 'comments/form', locals: {commentable: commentable, '@comment': @comment || Comment.new}
