@@ -28,5 +28,5 @@ Scenario: I can enter general feedback when creating a new iteration
   When I fill in "General Feedback" with "blah blah blah"
   And I press "Save"
   Given I am on the engagement iterations page for engagement id "1"
-  I should see "General Feedback"
-  I should see "blah blah blah"
+  Then I should see "General Feedback"
+  And I should see "blah blah blah"
