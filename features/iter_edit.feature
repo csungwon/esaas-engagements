@@ -38,7 +38,7 @@ Scenario: There is a Back Button in the Edit Iteration page and it works
   Given I follow "2017-03-25"
   And I press "Edit" for "2017-04-14"
   Then I should see "Edit Customer Feedback"
-  And I should "Back"
+  And I should see "Back"
   And I press "Back"
   Then I should see "Iterations for"
   And I should see "2017-04-14"
