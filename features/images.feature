@@ -21,11 +21,16 @@ Background:
 		| Armando Fox     | armandofox      | fox@berkeley.edu              |
 		| Adnan Hemani    | adnanhemani     | adnan.h@berkeley.edu          |
 
-	And the following apps exist:
-		| name      | description |
-		| AFX Dance | good stuff  |
+	And the follwing orgs exist:
+		| name                     | contact_id |
+		| UC Berkeley CS169        | 3          |
+		| Armando's Secret Society | 2          |
 
-	And I am logged in as "armandofox"
+	And the following apps exist:
+		| name      | description | status  |
+		| AFX Dance | good stuff  | pending |
+
+	And I am logged in
 	And I follow "Users" within "#nav_header"
 
 Scenario: Each user has a default profile image
