@@ -37,6 +37,7 @@ Background: Logged in
 
 	And I am logged in
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for New App
 	Given I am on the Apps page
@@ -53,6 +54,7 @@ Scenario: user can reset a form for New App
 	And I should have selected "Armando's Secret Society" from "Org"
 	And I should have selected "Pending" from "Status"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for New Organization
 	Given I am on the Orgs page
@@ -71,6 +73,7 @@ Scenario: user can reset a form for New Organization
 	And the "Defunct" checkbox should not be checked
 	And I should have selected "Adnan Hemani" from "Contact"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for New User
 	Given I am on the Users page
@@ -85,6 +88,7 @@ Scenario: user can reset a form for New User
 	Then All text fields are empty for the form with selector ".new_user"
 	And I should have selected "Student" from "Type of user"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Create New User, Org, and App
 	Given I am on the create page
@@ -112,6 +116,7 @@ Scenario: user can reset a form for Create New User, Org, and App
 	And I should have selected "Student" from "Type of user"
 	And the "Defunct" checkbox should not be checked
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for New Engagement
 	Given I am on the Apps page
@@ -137,6 +142,7 @@ Scenario: user can reset a form for New Engagement
 	And I should have selected "Adnan Hemani" from "Coach"
 	And I should have selected "Adnan Hemani" from "Contact"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for New Iteration
 	Given the time is "2012-07-13"
@@ -150,6 +156,7 @@ Scenario: user can reset a form for New Iteration
 	Then All text fields are empty for the form with selector "#new_iteration"
 	And I should have selected "2012-07-13" from "End date"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Edit App
 	Given I am on the Apps page
@@ -165,6 +172,7 @@ Scenario: user can reset a form for Edit App
 	And I should have selected "Armando's Secret Society" from "Org"
 	And I should have selected "Pending" from "Status"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Edit Org
 	Given I am on the Orgs page
@@ -179,6 +187,7 @@ Scenario: user can reset a form for Edit Org
 	And I should have selected "Adnan Hemani" from "Coach"
 	And I should have selected "Adnan Hemani" from "Contact"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Edit User
 	Given I am on the Users page
@@ -194,6 +203,7 @@ Scenario: user can reset a form for Edit User
 	And I should have filled in "armandofox" for "Github uid"
 	And I should have selected "Student" from "Type of user"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Edit Engagement
 	Given I am on the Apps page
@@ -214,6 +224,7 @@ Scenario: user can reset a form for Edit Engagement
 	And I should have filled in "13" for "Team number"
 	And I should have filled in "a, b, c" for "Student names"
 
+# Story ID: 153070009
 @javascript
 Scenario: user can reset a form for Edit Iteration
 	Given I am on the the Apps page
