@@ -50,6 +50,8 @@ module NavigationHelpers
 
     when /^the edit app page for app id: "(.*)"$/ then edit_app_path($1)
 
+    when /^the new app page$/ then new_app_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
