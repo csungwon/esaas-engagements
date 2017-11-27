@@ -33,6 +33,7 @@ Background:
 	And I am logged in
 	And I follow "Users" within "#nav_header"
 
+# Story ID: 153069541
 Scenario: Each user has a default profile image
 	When I follow "Armando Fox"
 	Then I should see "/assets/_default.png"
@@ -40,6 +41,7 @@ Scenario: Each user has a default profile image
 	And I follow "Adnan Hemani"
 	Then I should see "/assets/_deafult.png"
 
+# Story ID: 153069541
 Scenario: Each user can upload a image by local file
 	When I follow "Armando Fox"
 	And I follow "Edit User"
@@ -49,6 +51,7 @@ Scenario: Each user can upload a image by local file
 	Then I should be on the User page for "Armando Fox"
 	And I should see "ArmandoFox"
 
+# Story ID: 153069541
 Scenario: User can upload a valid image file (happy path)
 	When I follow "Armando Fox"
 	And I follow "Edit User"
@@ -57,6 +60,7 @@ Scenario: User can upload a valid image file (happy path)
 	Then I should be on the User page for "Armando Fox"
 	And I should see "randomImage"
 
+# Story ID: 153069541
 Scenario: User cannot upload an invalid image file (sad path)
 	When I follow "Armando Fox"
 	And I follow "Edit User"
@@ -73,6 +77,7 @@ Scenario: User cannot upload an invalid image file (sad path)
 	And I press "Upload Image"
 	Then I should see "Not a valid image file"
 
+# Story ID: 153069541
 Scenario: User profile picture is also shown on comments
 	Given the user "Armando Fox" has a profile image "app/assets/images/ArmandoFox.png"
 	And I go to the app details page for "AFX Dance"
