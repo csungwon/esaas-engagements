@@ -29,4 +29,29 @@ class Engagement < ActiveRecord::Base
       cum.merge(cur) {|_key, oldValue, newValue| oldValue + newValue / valid_count.to_f}
     end
   end
+
+  def org_name
+    self.coaching_org.try(:name)
+  end
+
+  def org_name=(name)
+    self.coaching_org = Org.find_by(name: name) if name.present?
+  end
+
+  def contact_name
+    self.contact.try(:name)
+  end
+
+  def contact_name=(name)
+    self.contact = User.find_by(name: name) if name.present?
+  end
+
+  def coach_name
+    self.coach.try(:name)
+  end
+
+  def coach_name=(name)
+    self.coach = User.find_by(name: name) if name.present?
+  end
+
 end
