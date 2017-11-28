@@ -11,7 +11,7 @@
   / = menu_field f, :contact, :model_class => User
   %br
   = label :org, :contact_name, 'Contact'
-  = f.text_field :contact_name, data: { autocomplete_source: users_autocomplete_path} # :contact_id should be defined in org model undefined method `org_name' for #<App:0x007fbf22f3b748>
+  = f.text_field :contact_name, data: { autocomplete_source: users_autocomplete_path} 
   %br
 
   .actions
