@@ -23,4 +23,11 @@ class App < ActiveRecord::Base
     status == "pending"
   end
 
+  def org_name
+    org.try(:name)
+  end
+
+  def org_name=(name)
+    self.org = Org.find_by(name: name) if name.present?
+  end
 end

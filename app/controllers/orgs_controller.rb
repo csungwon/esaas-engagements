@@ -56,6 +56,16 @@ class OrgsController < ApplicationController
     end
   end
 
+  def autocomplete
+    @orgs = Org.order(:name).where("name LIKE ?", "%#{params[:term]}%")
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @orgs.map(&:name).to_json
+      }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_org
