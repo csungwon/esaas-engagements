@@ -8,7 +8,12 @@
   = field f, :description, :text_area
   = field f, :url
   = field f, :defunct, :check_box
-  = menu_field f, :contact, :model_class => User
+  / = menu_field f, :contact, :model_class => User
+  %br
+  = label :org, :contact_name, 'Contact'
+  = f.text_field :contact_name, data: { autocomplete_source: users_autocomplete_path} # :contact_id should be defined in org model undefined method `org_name' for #<App:0x007fbf22f3b748>
+  %br
+
   .actions
     = f.submit 'Save', :class => 'btn btn-success'
     = link_to 'Back', orgs_path, :class => 'btn btn-primary'

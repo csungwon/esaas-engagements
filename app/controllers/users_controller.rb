@@ -32,6 +32,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def autocomplete
+    @users = User.order(:name).where("name LIKE ?", "%#{params[:term]}%")
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @users.map(&:name).to_json
+      }
+    end
+  end
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params

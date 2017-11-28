@@ -3,6 +3,7 @@
 @import "comments";
 @import "iterations";
 @import "jquery-ui/autocomplete";
+/*This the styling for the auto complete */
 /*https://stackoverflow.com/questions/17838380/styling-jquery-ui-autocomplete*/
   .ui-autocomplete {
     position: absolute;
@@ -53,3 +54,5 @@
     -moz-border-radius: 0px;
     background-image: none;
 }
+/*This hides the auto complete related helper text*/
+.ui-helper-hidden-accessible { display:none; }
