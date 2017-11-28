@@ -115,6 +115,24 @@ needed to correctly run the app:
 send session back and forth in cookies
 * `github_key`, `github_secret`: these are used for login with GitHub
 
+Although the app mocks the GitHub OAuth mechanism for test and development environment,
+you still need to add a "mock key" to `config/applicaiton.yml`. For example:
+
+```yaml
+test:
+	secret_key_base: test
+	github_key: test
+	github_secret: test
+
+development:
+	secret_key_base: development
+	github_key: development
+	github_secret: development
+```
+
+However, we think it is a good practice to have a mock key that resembles a real
+key. You can easily generate a key using `rake secret`.
+
 To upload the keys to an Heroku app, run `figaro heroku:set -e production`.
 
 After setting environment variables using `figaro`, you can access them by
