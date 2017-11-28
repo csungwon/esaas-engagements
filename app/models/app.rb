@@ -24,7 +24,7 @@ class App < ActiveRecord::Base
   end
 
   def org_name
-    org.try(:name)
+    self.org.try(:name)
   end
 
   def org_name=(name)

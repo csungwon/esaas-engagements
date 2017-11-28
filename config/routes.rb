@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   post 'creation' => 'creation#create', :as => 'create_all'
   
   get '/apps/:app_id/engagements/:id/export' => 'engagements#export', :as => 'export'
-  get 'autocomplete' => 'orgs#autocomplete', :as => 'autocomplete'
+  get 'orgs_autocomplete' => 'orgs#autocomplete', :as => 'orgs_autocomplete'
+  get 'users_autocomplete' => 'users#autocomplete', :as => 'users_autocomplete'
+
 end

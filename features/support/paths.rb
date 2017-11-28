@@ -52,6 +52,9 @@ module NavigationHelpers
 
     when /^the new app page$/ then new_app_path
 
+    when /^the new org page$/ then new_org_path
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
