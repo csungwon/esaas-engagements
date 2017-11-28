@@ -1,4 +1,3 @@
-@wip
 Feature: when creating an app, the orgs dropdown should be searchable
 As a user of the app
 So that I do not have to look through a long list of dropdown menu
@@ -18,9 +17,12 @@ Background: user and orgs have been added to database
 
   And I'm logged in on the orgs page
   
+@javascript
 Scenario: I can search the dropdown list of orgs
   # Story ID: 153069853
   Given I am on the new app page
-  And I fill in "organization" with "org"
-  Then I should see "org3"
-  And I should see "org4"
+  When I type in "org" into autocomplete list "app[org_name]"
+  Then I should see "org3" in the autocomplete list "app[org_name]"
+  Then I should see "org4" in the autocomplete list "app[org_name]"
+  Then I should not see "Berkeley" in the autocomplete list "app[org_name]"
+  Then I should not see "Stanford" in the autocomplete list "app[org_name]"
