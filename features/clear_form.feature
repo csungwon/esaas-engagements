@@ -244,7 +244,7 @@ Scenario: user can reset a form for Edit Iteration
 	And I fill in "some comment" for "Effectiveness comments:"
 	And I select "Mostly disagree" from "Satisfied:"
 	And I fill in "some comment" for "Satisfied comments:"
-	And I press "reset"
+	And I press "Reset"
 	Then I should have filled in "2017-09-15" for "End date:"
 	And I should have selected "15 min" from "Duration:"
 	And I should have selected "Strongly agree" from "Demeanor:"

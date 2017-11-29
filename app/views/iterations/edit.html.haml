@@ -58,6 +58,8 @@
     = label :iteration, "General Feedback: "
     = text_field :iteration, :general_feedback, :size => '80x6'
     %br
+
     = submit_tag 'Save Changes', :class => 'btn btn-success'
     = link_to 'Back to App', app_path(@engagement.app), :class => 'btn btn-primary'
     = link_to 'Back to Iteration', engagement_iterations_path(@engagement), :class => 'btn btn-primary'
+    = button_tag 'Reset', type: :reset, :class => 'btn btn-primary'
