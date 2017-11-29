@@ -12,7 +12,7 @@
     -commentable.comments.each do |comment|
       %div.media.comment{class: comment.comment_type_name.to_s}
         .media-left
-          = image_tag "presentation.png", class: 'media-object', height: '64'
+          = image_tag comment.user.profile_picture.url(:thumb), class: 'media-object'
         %div.media-body
           %h5.media-heading
             = comment.user.name
