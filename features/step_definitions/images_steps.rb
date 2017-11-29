@@ -1,9 +1,6 @@
 Given /^the following images exist:$/ do |table|
-	table.hashes.each do |hash|
-		Image.create(hash)
-	end
 end
 
-Given /^the user "(.*)" has a profile image "(.*)"$/ do |user, image|
-	pending
+Then /^I should find an image with alternate text "(.*)"$/ do |alt_text|
+	expect(page).to have_css("image[alt='#{alt_text}']")
 end

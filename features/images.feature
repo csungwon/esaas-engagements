@@ -6,14 +6,14 @@ Feature: User can add a profile picture that shows up in User details page/comme
 
 Background:
 	Given the following images exist:
-		| directory         | filename    | extension |
-		| app/assets/images | ArmandoFox  | png       |
-		| app/assets/images | AdnanHemani | jpeg      |
-		| app/assets/images | _default    | png       |
-		| app/assets/images | randomImage | bmp       |
-		| app/assets/images | notanimage  | txt       |
-		| app/assets/images | notjsagain  | js        |
-		| app/assets/images | haterspec   | rb        |
+		| file_path                              |
+		| features/upload_files/ArmandoFox.png   |
+		| features/upload_files/AdnanHemani.jpg  |
+		| features/upload_files/_default.png     |
+		| features/upload_files/randomImage.gif  |
+		| features/upload_files/notanimage.txt   |
+		| features/upload_files/notjsagain.js    |
+		| features/upload_files/haterspec.rb     |
 
 	And the following users exist:
 		| name            | github_uid      | email                         |
@@ -36,38 +36,37 @@ Background:
 # Story ID: 153069541
 Scenario: Each user has a default profile image
 	When I follow "Armando Fox"
-	Then I should see "/assets/_default.png"
+	Then I should find an image with alternate text "Missing medium"
 	When I follow "Users" within "#nav_header"
 	And I follow "Adnan Hemani"
-	Then I should see "/assets/_deafult.png"
+	Then I should find an image with alternate text "Missing medium"
 
 # Story ID: 153069541
 Scenario: Each user can upload a image by local file
 	When I follow "Armando Fox"
 	And I follow "Edit User"
 	Then I should see "Upload Profile Image"
-	When I attach the file "app/assets/images/ArmandoFox.png" to "Upload Profile Image"
-	And I press "Upload Image"
-	Then I should be on the User page for "Armando Fox"
-	And I should see "ArmandoFox"
+	When I attach the file "features/upload_files/ArmandoFox.png" to "Upload Profile Image"
+	And I press "Save"
+	And I follow "Armando Fox"
+	Then I should find an image with alternate text "Armandofox"
 
 # Story ID: 153069541
 Scenario: User can upload a valid image file (happy path)
 	When I follow "Armando Fox"
 	And I follow "Edit User"
-	When I attach the file "app/assets/images/randomImage.bmp" to "Upload Profile Image"
-	And I press "Upload Image"
-	Then I should be on the User page for "Armando Fox"
-	And I should see "randomImage"
+	When I attach the file "features/upload_files/randomImage.gif" to "Upload Profile Image"
+	And I press "Save"
+	And I follow "Armando Fox"
+	Then I should find an image with alternate text "Randomimage"
 
 # Story ID: 153069541
 Scenario: User cannot upload an invalid image file (sad path)
 	When I follow "Armando Fox"
 	And I follow "Edit User"
-	When I attach the file "app/assets/images/notanimage.txt" to "Upload Profile Image"
-	And I press "Upload Image"
-	Then I should see "Not a valid image file"
-	And I should be on the User page for "Armando Fox"
+	When I attach the file "features/upload_files/notanimage.txt" to "Upload Profile Image"
+	And I press "Save"
+	Then I should see "Profile picture content type is invalid"
 
 	When I attach the file "app/assets/images/notjsagain.js" to "Upload Profile Image"
 	And I press "Upload Image"
@@ -83,4 +82,4 @@ Scenario: User profile picture is also shown on comments
 	And I go to the app details page for "AFX Dance"
 	When I fill in "Write a comment..." with "AFX Dance is awesome!"
 	And I press "Post"
-	Then I should see "ArmandoFox"
+	Then I should find an image with alternate text "Armandofox"
