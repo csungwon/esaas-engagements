@@ -13,4 +13,12 @@ class Org < ActiveRecord::Base
   def address
   	[address_line_1, address_line_2, city_state_zip].join("\n").squish
   end
+
+  def contact_name
+    self.contact.try(:name)
+  end
+
+  def contact_name=(name)
+    self.contact = User.find_by(name: name) if name.present?
+  end
 end

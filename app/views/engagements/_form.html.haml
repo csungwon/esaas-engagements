@@ -4,9 +4,17 @@
   %fieldset
     %legend Coaching Info
     = field f, :start_date, :date_select
-    = menu_field f, :coaching_org, :model_class => Org
-    = menu_field f, :coach, :model_class => User
-    = menu_field f, :contact, :model_class => User
+
+    %br
+    = label :engagement, :org_name, 'Coaching Org'
+    = f.text_field :org_name, data: { autocomplete_source: orgs_autocomplete_path}
+    %br
+    = label :engagement, :coach_name, 'Coach'
+    = f.text_field :coach_name, data: { autocomplete_source: users_autocomplete_path}
+    %br
+    = label :engagement, :contact_name, 'Contact'
+    = f.text_field :contact_name, data: { autocomplete_source: users_autocomplete_path}
+    %br
 
   %fieldset
     %legend Team Info and Work Products

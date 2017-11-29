@@ -20,7 +20,6 @@ class OrgsController < ApplicationController
   # POST /orgs.json
   def create
     @org = Org.new(org_params)
-
     respond_to do |format|
       if @org.save
         format.html { redirect_to orgs_path, notice: 'Org was successfully created.' }
@@ -56,6 +55,16 @@ class OrgsController < ApplicationController
     end
   end
 
+  def autocomplete
+    @orgs = Org.order(:name).where("name LIKE ?", "%#{params[:term]}%")
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @orgs.map(&:name).to_json
+      }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_org
@@ -66,7 +75,7 @@ class OrgsController < ApplicationController
     def org_params
       params.
         require(:org).
-        permit(:name, :description, :url, :contact_id,
+        permit(:name, :description, :url, :contact_name,
       :address_line_1, :address_line_2, :city_state_zip, :phone, :defunct)
     end
 end
