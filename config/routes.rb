@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :comments, :only => [:create, :update], module: :orgs
   end
   resources :comments, :only => [:edit, :destroy]
-  resources :users, :only => [:index, :new, :edit, :create, :update]
+  resources :users, :only => [:index, :show, :new, :edit, :create, :update]
   root :to => 'apps#index'
 
   get 'current_iteration' => 'iterations#current_iteration', :as => 'current_iteration'
