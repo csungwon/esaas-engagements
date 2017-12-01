@@ -39,6 +39,6 @@ Scenario: I cannot submit with org name field blank
         | org[name]                 |                   |
     And I press "Save"
     Then I should see "Org Name can't be blank"
-    Then I should see "Contact name can't be blank"
+    Then I should see "Contact can't be blank"
 
 

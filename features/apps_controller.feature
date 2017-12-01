@@ -8,14 +8,14 @@ Background: users, orgs and apps have been added to database
   Given the following apps exist:
         | name  | description | org_id | status  |
         | app1  | test        | 1      | pending |
-        | app2  | test        | 1      | pending |
-        | app3  | test        | 1      | pending |
+        | app2  | test        | 2      | pending |
+        | app3  | test        | 3      | pending |
 
     And the following orgs exist:
-        | name | contact_id | contact_name|
-        | org1 | 1          | user1|
-        | org2 | 1          | user2|
-        | org3 | 1          | user3|
+        | name | id | contact_id |
+        | org1 | 1  | 1          |
+        | org2 | 2  | 1          |
+        | org3 | 3  | 1          |
 
     And the following users exist:
         | name  | github_uid      | email         |

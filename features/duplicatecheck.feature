@@ -50,7 +50,10 @@ Scenario: user fills in information in new org page
 Scenario: user fills in information in new org page
     Given I am on the Orgs page
     When I follow "New Org"
-    And I fill in "Org Name" with "new_org"
+    And I fill in the "New Organization" fields as follows:
+        | field                     | value             |
+        | org[name]                 | new_org              |
+        | org[contact_name]         | user1              |
     And I press "Save"
     Then I should see "Org was successfully created."
     Then I should not see "Org Name has already been taken"

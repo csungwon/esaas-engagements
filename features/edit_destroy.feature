@@ -58,7 +58,10 @@ Scenario: Newly Added Engagement also has buttons
    Given I create a new engagement for "app1"
    When I fill in the engagement fields as follows:
        | field                  | value      |
-       | Team number            | Team3          |
+       | Coaching Org           | org1       |
+       | Coach                  | user1      |
+       | Contact                | user2      |
+       | Team number            | Team3      |
        | Student names          | Student1   |
   And I press "Save"
   Then I should see "Engagement was successfully created"
