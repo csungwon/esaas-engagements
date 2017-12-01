@@ -33,15 +33,15 @@ Scenario: Login to github to create a new app
   And I am on the login page
   And I follow "Log in with GitHub"
   And I am on the new_app page
-  And I press "Save"
+  And I press "Create App"
   And I should see "2 errors prohibited App from being saved:"
   And I should see "App Name can't be blank"
   And I should see "App Description can't be blank"
   When I fill in "App Name" with "Fake app"
   When I fill in "App Description" with "Fake app description "
-  When I fill in "Deployment url" with "Fake app deployment url"
-  When I fill in "Repository url" with "Fake app repository "
-  And I press "Save"
+  When I fill in "Deployment Url" with "Fake app deployment url"
+  When I fill in "Repository Url" with "Fake app repository "
+  And I press "Create App"
   Then I should be on the apps page
   And I should see "App was successfully created."
 
@@ -55,9 +55,9 @@ Scenario: Login to github to edit an existing app successfully
   And I should see "Editing App"
   When I fill in "App Name" with "Fake app"
   When I fill in "App Description" with "Fake app description "
-  When I fill in "Deployment url" with "Fake app deployment url"
-  When I fill in "Repository url" with "Fake app repository "
-  And I press "Save"
+  When I fill in "Deployment Url" with "Fake app deployment url"
+  When I fill in "Repository Url" with "Fake app repository "
+  And I press "Update App"
   Then I should be on the apps page
   And I should see "App was successfully updated."
 
@@ -70,7 +70,7 @@ Scenario: Login to github to edit an existing app successfully
   And I follow "Log in with GitHub"
   And I should see "Editing App"
   When I fill in "App Name" with ""
-  And I press "Save"
+  And I press "Update App"
   And I should see "App Name can't be blank"
 
 Scenario: Login to github to delete an existing app successfully

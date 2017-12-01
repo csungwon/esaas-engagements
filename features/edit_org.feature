@@ -1,5 +1,5 @@
 Feature: an org can be edited
-    
+
     As an admin user
     So that we can update the org with correct information
     I want to edit an org
@@ -21,13 +21,13 @@ Scenario: I can edit an org
     And I fill in the "Edit Org" fields as follows:
     | field                     | value             |
     | org[name]                 | new_org_name      |
-    And I press "Save"
+    And I press "Update Org"
     Then I should see "Org was successfully updated."
 
 Scenario: I cannot submit with org name field blank
     And I fill in the "Edit User" fields as follows:
         | field                     | value             |
         | org[name]                 |                   |
-    And I press "Save"
+    And I press "Update Org"
     Then I should see "Org Name can't be blank"
 

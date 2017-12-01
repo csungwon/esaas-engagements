@@ -16,10 +16,10 @@ Background: Logged in
 
 Scenario: There is a form on the orgs page
     Then I should see "New Organization"
-    And I should see "Org Name"
-    And I should see "Address line 1"
-    And I should see "Address line 2"
-    And I should see "City state zip"
+    And I should see "Organization Name"
+    And I should see "Address Line 1"
+    And I should see "Address Line 2"
+    And I should see "City State Zip"
     And I should see "Phone"
     And I should see "Description"
     And I should see "Url"
@@ -30,13 +30,13 @@ Scenario: I can create an org
     And I fill in the "New Organization" fields as follows:
         | field                     | value             |
         | org[name]                 | org1              |
-    And I press "Save"
+    And I press "Create Org"
     Then I should see "Org was successfully created."
 
 Scenario: I cannot submit with org name field blank
     And I fill in the "New Organization" fields as follows:
         | field                     | value             |
         | org[name]                 |                   |
-    And I press "Save"
+    And I press "Create Org"
     Then I should see "Org Name can't be blank"
 

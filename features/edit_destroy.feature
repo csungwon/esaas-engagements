@@ -44,8 +44,8 @@ Scenario: Can edit and destroy all existing engagements
 Scenario: Editing existing engagements is successful
   #Story ID: #152689950
   And I press "Edit" for "2017-03-25"
-  Then I should see "Editing Engagement for"
-  And I press "Save"
+  Then I should see "Editing Engagement For"
+  And I press "Update Engagement"
   Then I should see "Engagement was successfully updated."
 
 Scenario: Destroying existing engagements is successful
@@ -58,9 +58,9 @@ Scenario: Newly Added Engagement also has buttons
    Given I create a new engagement for "app1"
    When I fill in the engagement fields as follows:
        | field                  | value      |
-       | Team number            | Team3          |
-       | Student names          | Student1   |
-  And I press "Save"
+       | Team Number            | Team3      |
+       | Student Names          | Student1   |
+  And I press "Create Engagement"
   Then I should see "Engagement was successfully created"
   Then I should see "Team3" has button "Edit"
   And I should see "Team3" has button "Destroy"
@@ -78,8 +78,8 @@ Scenario: Editing existing iterations is successful
   #Story ID: #152689950
   Given I follow "2017-03-25"
   And I press "Edit" for "2017-04-14"
-  And I should see "Edit Customer Feedback"
-  And I press "Save Changes"
+  And I should see "Edit Iteration"
+  And I press "Update Iteration"
   And I should see "Iteration was successfully updated."
 
 Scenario: Destroying existing iterations is successful
@@ -93,8 +93,8 @@ Scenario: Newly Added Iteration also has buttons
   Given I follow "2017-03-25"
   And the time is "2017-11-14T19:20"
   And I follow "Add Iteration..."
-  And I select "2017 November 14" for the enddate
-  And I press "Save"
+  And I fill in "2017-11-14" for "End Date"
+  And I press "Create Iteration"
   Then I should see "Iteration was successfully created"
   And I should see "2017-11-14" has button "Edit"
   And I should see "2017-11-14" has button "Destroy"
