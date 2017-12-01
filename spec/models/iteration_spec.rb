@@ -84,7 +84,7 @@ describe Iteration do
 	end
 
 	it 'contains a list of keys that relate to customer feedback' do
-		expect(Iteration.customer_text_keys).to eq(%w(engaged_text communication_text understanding_text effectiveness_text satisfied_text))
+		expect(Iteration.customer_text_keys).to eq(%w(demeanor_text engaged_text communication_text understanding_text effectiveness_text satisfied_text))
 	end
 	it 'conatins a hash that maps a customer rating to a score' do
 		expect(Iteration.ratings).to eq({"Strongly agree" => 5, "Mostly agree" => 4, "Neither agree nor disagree" => 3, \
