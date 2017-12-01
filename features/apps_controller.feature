@@ -12,10 +12,10 @@ Background: users, orgs and apps have been added to database
         | app3  | test        | 1      | pending |
 
     And the following orgs exist:
-        | name | contact_id |
-        | org1 | 1          |
-        | org2 | 1          |
-        | org3 | 1          |
+        | name | contact_id | contact_name|
+        | org1 | 1          | user1|
+        | org2 | 1          | user2|
+        | org3 | 1          | user3|
 
     And the following users exist:
         | name  | github_uid      | email         |

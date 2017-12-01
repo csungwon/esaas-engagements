@@ -7,6 +7,7 @@ class AppsController < ApplicationController
   def index
     @current_user = User.find_by_id(session[:user_id])
     @apps = App.all
+    byebug
     respond_to do |format|
       format.json { render :json => @apps.featured }
       format.html

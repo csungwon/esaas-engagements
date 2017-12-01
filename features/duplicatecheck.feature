@@ -11,10 +11,10 @@ Background: User is trying to sign up
         | org3 | 3          |
 
     And the following users exist:
-        | name  | github_uid      | email          |
-        | user1 | esaas_developer | user1@user.com |
-        | user2 |                 | user2@user.com |
-        | user3 |                 | user3@user.com |
+        | name  | id | github_uid      | email          |
+        | user1 | 1 | esaas_developer | user1@user.com |
+        | user2 | 2 |                 | user2@user.com |
+        | user3 | 3 |                 | user3@user.com |
     
     And I'm logged in on the orgs page
 
@@ -39,7 +39,10 @@ Scenario: user fills in information in new user page
 Scenario: user fills in information in new org page
     Given I am on the Orgs page
     When I follow "New Org"
-    And I fill in "Org Name" with "org1"
+    And I fill in the "New Organization" fields as follows:
+        | field                     | value             |
+        | org[name]                 | org1              |
+        | org[contact_name]         | user1              |
     And I press "Save"
     Then I should see "Org Name has already been taken"
     And I should not see "Org was successfully created."

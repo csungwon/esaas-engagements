@@ -28,6 +28,8 @@ Scenario: I can create an org
     And I fill in the "New Organization" fields as follows:
         | field                     | value             |
         | org[name]                 | org1              |
+        | org[contact_name]         | user1              |
+
     And I press "Save"
     Then I should see "Org was successfully created."
 
@@ -37,4 +39,6 @@ Scenario: I cannot submit with org name field blank
         | org[name]                 |                   |
     And I press "Save"
     Then I should see "Org Name can't be blank"
+    Then I should see "Contact name can't be blank"
+
 

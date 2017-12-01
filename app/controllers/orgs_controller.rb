@@ -20,7 +20,6 @@ class OrgsController < ApplicationController
   # POST /orgs.json
   def create
     @org = Org.new(org_params)
-    byebug
     respond_to do |format|
       if @org.save
         format.html { redirect_to orgs_path, notice: 'Org was successfully created.' }
