@@ -5,6 +5,7 @@ class Org < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :name, uniqueness: true
+  # validates :contact_name, :presence => true
 
   default_scope { order :name => :asc }
 
