@@ -94,4 +94,10 @@ describe Iteration do
 		expect(Iteration.create_base_rating_hash).to eq({"demeanor" => 0, "engaged" => 0, "communication" => 0, \
 		"understanding" => 0, "effectiveness" => 0, "satisfied" => 0})
 	end
+	it 'contains a list of rating options' do
+		expect(Iteration.rating_options).to eq ['Strongly agree', 'Mostly agree', 'Neither agree nor disagree', 'Mostly disagree', 'Strongly disagree']
+	end
+	it 'contains a list of duration options' do
+		expect(Iteration.duration_options).to eq ['15 min', '30 min', '45 min', '1 hour', '1 hour 15 min', '1 hour 30 min', 'Longer than 1 hour 30 min']
+	end
 end
