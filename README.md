@@ -83,8 +83,8 @@ point your browser at `http://localhost:3000` to access it.
 
 In production, you login with your GitHub account.  Login is only
 permitted for a user whose `github_uid` field in the database is set to
-their GitHub username, e.g. `armandofox`.  So, get someone who already
-has this field set to set the field for your user record.
+their GitHub username, e.g. `armandofox`.  So, **get someone who already
+has this field set to set the field for your user record.**
 
 ## Logging In (Development)
 
@@ -120,14 +120,14 @@ you still need to add a "mock key" to `config/applicaiton.yml`. For example:
 
 ```yaml
 test:
-	secret_key_base: test
-	github_key: test
-	github_secret: test
+  secret_key_base: test
+  github_key: test
+  github_secret: test
 
 development:
-	secret_key_base: development
-	github_key: development
-	github_secret: development
+  secret_key_base: development
+  github_key: development
+  github_secret: development
 ```
 
 However, we think it is a good practice to have a mock key that resembles a real
@@ -150,7 +150,7 @@ averages on each category
 * `User` supports different typs (e.g. Student, Staff/Coach, Customer)
 * Exports `Engagement` information as a CSV file
 * each `User` contains a profile image
-  - currently saves images directly into database (which is considered a bad practice; for future engagements, save them in AWS for better performance along with scalability)
+  - we are using Amazon S3 to store images on production envrionment, because Heroku has [emphemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem). If you want to run this app on heroku server, you will have to create another Amazon S3 account and setup the configuration([Instruction](https://devcenter.heroku.com/articles/paperclip-s3)).
 * Authorization to edit/destroy only to "Staff"
 * Autocomplete dropdown list
 
