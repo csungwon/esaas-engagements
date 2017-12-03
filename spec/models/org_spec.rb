@@ -19,14 +19,18 @@ describe Org do
         it 'has many coaches' do
             assc = described_class.reflect_on_association(:coaches)
             expect(assc.macro).to eq :has_many
-        
         end
-
+        
+        it 'can access coaches' do
+            @coach1 = User.new(:name => 'coach1', :email => 'coach1@email.com')
+            @coach2 = User.new(:name => 'coach2', :email => 'coach2@email.com')
+            @org = Org.new
+            @org.coaches << [@coach1, @coach2]
+            expect(@org.coaches).to eq [@coach1, @coach2]
+        end
     end
     
     describe 'address' do
-
-        
         it 'gives full address' do
             user1 = User.create(:name => 'person', :email => 'fake@fake.com' )
             org1 = Org.new(:name => 'is org', :contact => user1)
@@ -36,9 +40,6 @@ describe Org do
             expect(org1.address).to eq ("A Happy Place Number 66")
 
         end
-
     end
-
-
 
 end
