@@ -19,7 +19,7 @@ class CreationController < ApplicationController
     end
 
     def create
-        if User.find_by_id(session[:user_id]).type_user == "Staff"
+        if User.find_by_id(session[:user_id]).type_user == "staff"
             begin
                 ActiveRecord::Base.transaction do
                     @user = User.create!(user_params)
@@ -32,7 +32,7 @@ class CreationController < ApplicationController
             end
             redirect_to app_path(@app), notice: 'User, Org, and App were successfully created.'
         else 
-			redirect_to creation_path, alert: 'Error: Only Staff can create users, orgs, and apps'
+			redirect_to creation_path, alert: 'Error: Only staff can create users, orgs, and apps'
 		end
     end
 end

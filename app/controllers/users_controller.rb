@@ -6,21 +6,20 @@ class UsersController < ApplicationController
   end
 
   def new
-    if User.find_by_id(session[:user_id]).type_user == "Staff"
+    if User.find_by_id(session[:user_id]).type_user == "staff"
 			@user = User.new
       render 'user'
 		else 
-			redirect_to users_path, alert: 'Error: Only Staff can create users'
+			redirect_to users_path, alert: 'Error: Only staff can create users'
 		end
-    
   end
 
   def edit
-    if User.find_by_id(session[:user_id]).type_user == "Staff"
+    if User.find_by_id(session[:user_id]).type_user == "staff"
       @user = User.find params[:id]
       render 'user'
     else 
-			redirect_to users_path, alert: 'Error: Only Staff can edit users'
+			redirect_to users_path, alert: 'Error: Only staff can edit users'
 		end
   end
 
@@ -49,7 +48,5 @@ class UsersController < ApplicationController
       require(:user).
       permit(:name,:email,:preferred_contact,:github_uid,:type_user,:sid)
   end
-
-
 end
 
