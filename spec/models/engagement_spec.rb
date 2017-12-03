@@ -2,46 +2,49 @@ require 'rails_helper'
 
 describe Engagement do
     #Story ID: #153069725
-    describe 'should belong to a coach and contact', :pending => true do
+    describe 'engagement associations' do
 
-        it 'belongs to a coach', :pending => true do
-            pending("work") do
-                expect(1).to eq(1)
-                # @user1 = User.new
-                # @user2 = User.new
-                # @eng = Engagement.new
-                # @eng.coach = @user1
-                # expect(@eng.coach).to eq(@user1)
-            end
+        it 'belongs to an app' do
+            assc = described_class.reflect_on_association(:app)
+            expect(assc.macro).to eq :belongs_to
+
         end
+        
+        it 'belongs to a coach' do
+            assc = described_class.reflect_on_association(:coach)
+            expect(assc.macro).to eq :belongs_to
+        end
+        
+        it 'has one coaching org' do
+            assc = described_class.reflect_on_association(:coaching_org)
+            expect(assc.macro).to eq :has_one
 
-        it 'belongs to a client', :pending => true do
-            pending("work") do
-                expect(1).to eq(1)
-                # @user1 = User.new
-                # @user2 = User.new
-                # @eng = Engagement.new
-                # @eng.coach = @user2
-                # expect(@eng.contact).to eq(@user2)
-            end
+        end
+        
+        it 'has one client org' do
+            assc = described_class.reflect_on_association(:client_org)
+            expect(assc.macro).to eq :has_one
+
+        end
+        
+        it 'has one client' do
+            assc = described_class.reflect_on_association(:client)
+            expect(assc.macro).to eq :has_one
+
+        end
+        
+        it 'has many iterations' do
+            assc = described_class.reflect_on_association(:iterations)
+            expect(assc.macro).to eq :has_many
+
+        end
+        
+        it 'has many developers' do
+            assc = described_class.reflect_on_association(:developers)
+            expect(assc.macro).to eq :has_many
         end
 
     end
-
-    #Story ID: #153069725
-    describe 'should have some number of developers', :pending => true do
-
-        it "has many developers", :pending => true do
-            pending("work") do
-                expect(1).to eq(1)
-                # @user1 = User.new
-                # @user2 = User.new
-                # @eng = Engagement.new
-                # @eng.developers << [@user1, @user2]
-                # expect(@eng.developers).to eq([@user1, @user2])
-            end
-        end
-
-    end
+    
 
 end
