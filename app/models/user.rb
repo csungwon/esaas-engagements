@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   enum user_type: [:student, :coach, :client]
+  enum comment_type: []
 
   default_scope { order('name') }
 end

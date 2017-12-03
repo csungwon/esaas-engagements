@@ -1,36 +1,33 @@
 .page-header
   %h1
     = @user.name
-    - git_url = 'https://www.github.com/'
-    - unless @user.github_uid.blank?
-      - git_url += @user.github_uid
-    = link_to_unless@user.github_uid.blank?, image_tag('octocat.png'), git_url, :target => '_blank'
+    = link_to(image_tag('octocat.png'), "https://www.github.com/#{@user.github_uid}", target: '_blank') if @user.github_uid
+
+.well#description
+  %h4
+    = @user.name
+    %span.pull-right= @user.type_user
+  %ul
+    %li
+      %strong Email:
+      = @user.email
+    %li
+      %strong Github User ID:
+      = @user.github_uid
+    %li
+      %strong Preferred Contact:
+      = @user.preferred_contact
+
+= render partial: 'comments/comments', locals: {commentable: @user}
 
 = link_to 'Edit User', edit_user_path(@user), class: 'btn btn-primary'
 = link_to 'Back', users_path, class: 'btn btn-primary'
-%br
-%br
-.well#description
-  %h4
-    -unless @user.type_user.blank?
-      ="Role: " + @user.type_user
-      -if @user.type_user == 'student'
-        %br
-        %br
-        ="SID: " + @user.SID
-    -unless @user.github_uid.blank?
-      %br
-      %br
-      ="Github ID: " + @user.github_uid
-    -unless @user.preferred_contact.blank?
-      %br
-      %br
-      ="Contact: " + @user.contact
-    
-    
-%h1
-  ="Engagements"
-  
+
+.page-header
+  %h1 Engagements
+
+%p.explanation="This user is participating in the following Engagement(s) as a #{@user.type_user.try(:humanize)}"
+
 %table.table
   %thead
     %tr
