@@ -19,16 +19,20 @@ class CreationController < ApplicationController
     end
 
     def create
-        begin
-            ActiveRecord::Base.transaction do
-                @user = User.create!(user_params)
-                @org = @user.orgs.create!(org_params)
-                @app = @org.apps.create!(app_params)
+        if User.find_by_id(session[:user_id]).type_user == "Staff"
+            begin
+                ActiveRecord::Base.transaction do
+                    @user = User.create!(user_params)
+                    @org = @user.orgs.create!(org_params)
+                    @app = @org.apps.create!(app_params)
+                end
+            rescue ActiveRecord::RecordInvalid => e
+                @error_record = e.record
+                render :new and return
             end
-        rescue ActiveRecord::RecordInvalid => e
-            @error_record = e.record
-            render :new and return
-        end
-        redirect_to app_path(@app), notice: 'User, Org, and App were successfully created.'
+            redirect_to app_path(@app), notice: 'User, Org, and App were successfully created.'
+        else 
+			redirect_to creation_path, alert: 'Error: Only Staff can create users, orgs, and apps'
+		end
     end
 end
