@@ -34,7 +34,7 @@ Scenario: Can create an engagement with Team members
    Then I should see "Team members"
    And I select "user1 user2 user3" as Team members
    And I press "Save"
-   Then I should see "2 errors prohibited Engagement from being saved:"
+   Then I should see "4 errors prohibited Engagement from being saved:"
 
 Scenario: Can create an engagement with Team members
    #Story ID: #152298585
@@ -44,6 +44,9 @@ Scenario: Can create an engagement with Team members
        | field                  | value      |
        | Team number            | Team1      |
        | Student names          | Student1   |
+       | Coaching Org           | org1       |
+       | Coach                  | user1      |
+       | Contact                | user2      |
    And I select "user1 user2 user3" as Team members
    And I press "Save"
    Then I should see "Engagement was successfully created."
@@ -57,6 +60,9 @@ Scenario: Can update an engagement's team mumbers
        | field                  | value      |
        | Team number            | Team1      |
        | Student names          | Student1   |
+       | Coaching Org           | org1       |
+       | Coach                  | user1      |
+       | Contact                | user2      |
    And I select "user1 user2 user3" as Team members
    And I press "Save"
    Then I should see "Engagement was successfully created."
