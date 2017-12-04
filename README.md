@@ -133,10 +133,30 @@ development:
 However, we think it is a good practice to have a mock key that resembles a real
 key. You can easily generate a key using `rake secret`.
 
-To upload the keys to an Heroku app, run `figaro heroku:set -e production`.
+To upload the keys to a Heroku app, run `figaro heroku:set -e production`.
 
 After setting environment variables using `figaro`, you can access them by
 `ENV["YOURKEY"]` or `Figaro.env.YOURKEY`. Refer the [documentation](https://github.com/laserlemon/figaro) for more information.
+
+## Running Unit/Integration Tests
+
+We used Cucumber/Capybara for integration tests, and RSpec for unit tests. You can
+run tests using:
+```shell
+bundle exec cucumber
+bundle exec rspec
+```
+
+To test javascript behaviors, Cucumber uses Selenium Webdriver as default. This
+requires you to have a [geckodriver](https://github.com/mozilla/geckodriver/releases),
+and firefox browser. If you want to use other drivers (e.g. [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)) refer to [Capybara](https://github.com/teamcapybara/capybara) webpage
+to configure default webdriver.
+
+If you do not want to download a new webdriver, you can skip scenarios which require
+webdriver by:
+```shell
+bundle exec cucumber --tags ~@javascript
+```
 
 # FA17 Engagement: Main Features
 
@@ -150,12 +170,19 @@ averages on each category
 * `User` supports different typs (e.g. Student, Staff/Coach, Customer)
 * Exports `Engagement` information as a CSV file
 * each `User` contains a profile image
-  - we are using Amazon S3 to store images on production envrionment, because Heroku has [emphemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem). If you want to run this app on heroku server, you will have to create another Amazon S3 account and setup the configuration([Instruction](https://devcenter.heroku.com/articles/paperclip-s3)).
-* Authorization to edit/destroy only to "Staff"
-* Autocomplete dropdown list
-
+  - we are using Amazon S3 to store images on production envrionment, because
+  Heroku has [emphemeral filesystem](https://devcenter.heroku.com/articles/dynos#ephemeral-filesystem). If you want to run this app on heroku server, you will
+  have to create another Amazon S3 account and setup the configuration([Instruction](https://devcenter.heroku.com/articles/paperclip-s3)).
+* Authorization to edit/destroy only to "Coach"
+* Autocomplete dropdown list (select2)
+* Major Bootstrap styling
 
 # High priority feature list
 
 0. Add user contact info and a way to track user meeting notes
 0. Google or Facebook or LinkedIn login for customer contacts
+0. Manage customer feedback as a active record, not a json string
+0. Add multiple user types (e.g. CS169 staff can be both a coach and a client)
+0. Mailing customer feedback forms to customers for each iteration (Sendgrid)
+0. More authorizations to different types of users
+  - a user cannot edit/delete other users unless it is a staff/coach
