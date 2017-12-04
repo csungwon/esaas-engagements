@@ -5,8 +5,8 @@ Feature: Get iteration feedback from customers who haven't submitted feedback ye
 
 Background: Logged in
     Given the following users exist:
-        | id | name  | github_uid      | email         |
-        | 1  | user1 | esaas_developer | test@user.com |
+        | id | name  | github_uid      | email         | user_type |
+        | 1  | user1 | esaas_developer | test@user.com | coach     |
 
     And the following orgs exist:
         | id | name | contact_id |

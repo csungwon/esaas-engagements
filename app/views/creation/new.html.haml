@@ -1,8 +1,8 @@
 = form_errors_for @error_record
 
 .page-header
-  %h1 Create New User, Org, and App
-  %h4 Staff can create a new user, org, and app at the same time. The newly created user belongs to the newly created org and owns the newly created app.
+    %h1 Create New User, Org, and App
+    .help-block Staff can create a new user, org, and app at the same time. The newly created user belongs to the newly created org and owns the newly created app.
 
 = bootstrap_form_tag url: creation_path, html: {id: 'create'} do |f|
     .row
@@ -25,6 +25,7 @@
                 = org_form.phone_field :phone, label: 'Phone'
                 = org_form.text_area :description, label: 'Organization Description'
                 = org_form.url_field :url, label: 'Url'
+                = org_form.collection_select(:coach_ids, User.all, :id, :name, {:include_blank => true, label: 'Coaches'}, {:multiple => true, class: 'select2', css: '#select_coach'})
                 = org_form.check_box :defunct, label: 'Defunct'
         %fieldset.col-sm-4
             %legend= 'App Information'
@@ -34,6 +35,7 @@
                 = app_form.url_field :deployment_url, label: 'Deployment Url'
                 = app_form.url_field :repository_url, label: 'Repository Url'
                 = app_form.url_field :code_climate_url, label: 'Code Climate Url'
+                = app_form.collection_select :status, App.statuses, :first, ->(x) { x.first.humanize}, {label: 'Status'}, {class: 'select2'}
     = f.submit 'Submit', class: 'btn btn-success'
     = link_to 'Cancel', apps_path, :class => 'btn btn-primary'
     = button_tag 'Reset', type: :reset, :class => 'btn btn-primary'

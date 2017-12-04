@@ -18,10 +18,10 @@ Background: Logged in
         | org3 | 1          |
 
     And the following users exist:
-        | id | name  | github_uid      | email          | type_user     |
-        | 1  | user1 | esaas_developer | test@user.com  | Staff         |
-        | 2  | user2 |                 | test1@user.com | Student       |
-        | 3  | user3 |                 | test2@user.com | Coach         |
+        | id | name  | github_uid      | email          | user_type     |
+        | 1  | user1 | esaas_developer | test@user.com  | coach         |
+        | 2  | user2 |                 | test1@user.com | student       |
+        | 3  | user3 |                 | test2@user.com | coach         |
 
     And I'm logged in on the orgs page
 

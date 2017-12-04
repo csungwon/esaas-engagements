@@ -6,9 +6,9 @@ Feature: an org can be edited
 
 Background: Logged in
     And the following users exist:
-        | id | name  | github_uid      | email          | type_user     |
-        | 1  | user1 | esaas_developer | test@user.com  | Staff         |
-        | 2  | user2 |                 | test1@user.com | Staff         |
+        | id | name  | github_uid      | email          | user_type     |
+        | 1  | user1 | esaas_developer | test@user.com  | coach         |
+        | 2  | user2 |                 | test1@user.com | coach         |
 
     And the following orgs exist:
         | name | contact_id | id |

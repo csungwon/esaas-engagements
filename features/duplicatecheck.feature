@@ -11,7 +11,7 @@ Background: User is trying to sign up
         | org3 | 3          |
 
     And the following users exist:
-        | name  | github_uid      | email          | type_user     |
+        | name  | github_uid      | email          | user_type     |
         | user1 | esaas_developer | user1@user.com | coach         |
         | user2 |                 | user2@user.com | student       |
         | user3 |                 | user3@user.com | client        |

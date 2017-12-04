@@ -15,13 +15,13 @@ Background: Logged in, users, apps, orgs, engagements and iterations exist
     | 2  | org2 | 1          |
     | 3  | org3 | 1          |
   And the following users exist:
-    | id | name  | github_uid      | email          | type_user     |
-    | 1  | user1 | esaas_developer | test@user.com  | Staff         |
-    | 2  | user2 |                 | test1@user.com | Staff         |
-    | 3  | user3 |                 | test2@user.com | Staff         |
-    | 4  | user4 |                 | test3@user.com | Staff         |
-    | 5  | user5 |                 | test@user.com  | Staff         |
-    | 6  | user6 |                 | test@user.com  | Student       |
+    | id | name  | github_uid      | email          | user_type     |
+    | 1  | user1 | esaas_developer | test@user.com  | coach         |
+    | 2  | user2 |                 | test1@user.com | coach         |
+    | 3  | user3 |                 | test2@user.com | coach         |
+    | 4  | user4 |                 | test3@user.com | coach         |
+    | 5  | user5 |                 | test@user.com  | coach         |
+    | 6  | user6 |                 | test@user.com  | student       |
   And the following engagements exist:
     | id | app_id | coach_id | team_number | start_date | student_names |
     | 1  | 1      | 1        | 1           | 2017-03-25 | s1, s2, s3    |
@@ -78,7 +78,7 @@ Scenario: Editing existing iterations is successful
   #Story ID: #152689950
   Given I follow "2017-03-25"
   And I press "Edit" for "2017-04-14"
-  And I should see "Edit Iteration"
+  And I should see "Edit Customer Feedback"
   And I press "Update Iteration"
   And I should see "Iteration was successfully updated."
 
