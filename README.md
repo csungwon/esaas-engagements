@@ -138,6 +138,18 @@ To upload the keys to a Heroku app, run `figaro heroku:set -e production`.
 After setting environment variables using `figaro`, you can access them by
 `ENV["YOURKEY"]` or `Figaro.env.YOURKEY`. Refer the [documentation](https://github.com/laserlemon/figaro) for more information.
 
+## Uploading Images with AWS S3
+Since Heroku wipes out all data when dyno server is down, we used AWS S3 Bucket
+to store the images. After you open an account for AWS, you will need the following
+keys (in `config/application.yml`):
+```yaml
+AWS_ACCESS_KEY_ID: <your_aws_access_key_id>
+AWS_SECRET_ACCESS_KEY: <your_aws_secret_access_key>
+S3_BUCKET_NAME: <your_s3_bucket_name>
+AWS_REGION: <your_aws_region>
+S3_HOST_NAME: <your_s3_host_name>
+```
+
 ## Running Unit/Integration Tests
 
 We used Cucumber/Capybara for integration tests, and RSpec for unit tests. You can
