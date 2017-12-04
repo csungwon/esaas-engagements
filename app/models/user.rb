@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   def participating_engagements
     case
     when student?
-      [developing_engagement]
+      [*developing_engagement]
     when client?
       client_engagements
     when coach?

@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171204012819) do
-||||||| merged common ancestors
-ActiveRecord::Schema.define(version: 20171115224801) do
-=======
-ActiveRecord::Schema.define(version: 20171129080254) do
->>>>>>> [feature] Add profile image to each user
 
   create_table "apps", force: :cascade do |t|
     t.integer  "org_id"
@@ -105,19 +99,13 @@ ActiveRecord::Schema.define(version: 20171129080254) do
     t.string   "preferred_contact"
     t.string   "sid"
     t.string   "type_user"
-<<<<<<< HEAD
     t.integer  "developing_engagement_id"
-    t.integer  "coaching_org_id"
-    t.integer  "user_type"
-||||||| merged common ancestors
-    t.integer  "engagement_id"
-=======
-    t.integer  "engagement_id"
     t.string   "profile_picture_file_name"
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
->>>>>>> [feature] Add profile image to each user
+    t.integer  "coaching_org_id"
+    t.integer  "user_type"
   end
 
   add_index "users", ["developing_engagement_id"], name: "index_users_on_developing_engagement_id"
