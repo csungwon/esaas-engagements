@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -8,14 +9,11 @@ class UsersController < ApplicationController
     @user = User.new
     render 'user'
   end
-  
+
   def show
-    @user = User.find params[:id]
-    @engagements = Engagement.all.includes(:users)
   end
 
   def edit
-    @user = User.find params[:id]
     render 'user'
   end
 
@@ -29,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to users_path, notice: 'User was successfully updated.'
     else
@@ -38,6 +35,9 @@ class UsersController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.
@@ -45,7 +45,5 @@ class UsersController < ApplicationController
       permit(:name, :email, :preferred_contact, :github_uid, :user_type, :sid,
         :developing_engagement_id, :coaching_org_id)
   end
-
-
 end
 

@@ -6,7 +6,7 @@
 .well#description
   %h4
     = @user.name
-    %span.pull-right= @user.type_user
+    %span.pull-right= @user.user_type.try(:humanize)
   %ul
     %li
       %strong Email:
@@ -25,40 +25,6 @@
 
 .page-header
   %h1 Engagements
+  %span.help-block This user is participating in the following Engagement(s):
 
-%p.explanation="This user is participating in the following Engagement(s) as a #{@user.type_user.try(:humanize)}"
-
-%table.table
-  %thead
-    %tr
-      %th App
-      %th Role
-      %th Started
-      %th Contact
-      %th Coach
-      %th Team#
-      %th Developers
-      %th{:colspan => 3} Assets
-      %th
-  %tbody
-    - @engagements.each_with_index do |engagement,indx|
-      -role = role(@user, engagement)
-      -unless role.blank?
-        %tr
-          %td= link_to engagement.app.name, app_path(engagement.app)
-          %td= role
-          %td= link_to engagement.start_date.strftime('%F'), engagement_iterations_path(engagement)
-          %td= mail_to(engagement.contact.email, engagement.contact.name) if engagement.contact
-          %td= [engagement.coach.try(:name),engagement.coaching_org.try(:name)].join(', ')
-          %td= engagement.team_number
-          %td
-            %div{:class => 'members'}
-              -engagement.users.each_with_index do |member, index|
-                %div{:class => "member#{index}"} #{member.try(:name)}
-          %td= link_to image_tag('deployment.png', size: '45x45', title: 'Deploy'), engagement.prototype_deployment_url, :target => '_blank'
-          %td= link_to image_tag('video.png', title: 'Screencast'), engagement.screencast_url, :target => '_blank'
-          %td= link_to image_tag('presentation.png', title: 'Presentation'), engagement.presentation_url, :target => '_blank'
-          %td
-            = link_to('Edit', edit_app_engagement_path(engagement.app,engagement), :class => 'btn btn-primary')
-            = link_to 'Destroy', app_engagement_path(engagement.app,engagement), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger'
-            = link_to('CSV', export_path(engagement.app,engagement), :class => 'btn btn-info')
+= render partial: 'engagements/index', locals: {engagements: @user.participating_engagements}

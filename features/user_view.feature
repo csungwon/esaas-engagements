@@ -5,10 +5,10 @@ Feature: having a profile page for each user
 
 Background: Logged in
     Given the following users exist:
-        | id | name         | github_uid      | email                     | type_user |
-        | 1  | Armando Fox  | armandofox      | fox@berkeley.edu          | staff     |
-        | 2  | Joe Deatrick | jldeatrick      | jldeatrick@protonmail.com | student   |
-        | 3  | Developer    | esaas_developer | esaas@saasbook.info       | staff     |
+        | id | name         | github_uid      | email                     | user_type |
+        | 1  | Armando Fox  | armandofox      | fox@berkeley.edu          | coach     |
+        | 2  | Joe Deatrick | jldeatrick      | jldeatrick@protonmail.com | client    |
+        | 3  | Developer    | esaas_developer | esaas@saasbook.info       | student   |
 
     And the following orgs exist:
         | id | name         | contact_id |
@@ -21,9 +21,9 @@ Background: Logged in
         | 2  | Chromaticats | never gonna finish | 2      | pending |
 
     And the following engagements exist:
-        | id | app_id | contact_id | coaching_org_id | coach_id | team_number | start_date | student_names           |
-        | 1  | 1      | 1          | 1               | 1        | 169         | 2017-10-01 | adnan hemani, wayne li  |
-        | 2  | 2      | 2          | 2               | 2        | 178         | 2017-11-02 | Joe Deatrick, Zhi Zhang |
+        | id | app_id | coach_id | team_number | start_date | student_names           |
+        | 1  | 1      | 1        | 169         | 2017-10-01 | adnan hemani, wayne li  |
+        | 2  | 2      | 1        | 178         | 2017-11-02 | Zhi Zhang               |
 
     And I'm logged in on the orgs page
 
@@ -44,9 +44,10 @@ Scenario: Each User has a clickable link to their profile page
 Scenario: The User profile page should have the correct information
     Given I am on the user details page for "Joe Deatrick"
     Then I should see "jldeatrick@protonmail.com"
-    And I should see "student"
-    And I should see "Chromaticats"
-    And I should see "QDGames"
+    And I should see "Client"
+    And I should see "2017-11-02"
+    And I should see "178"
+    And I should see "Armando Fox"
     And I should not see "ACElab"
     And I should not see "Teamscope"
 

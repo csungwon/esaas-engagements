@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   belongs_to :coaching_org, class_name: 'Org'
   belongs_to :developing_engagement, class_name: 'Engagement'
 
-  has_many :comments, foreign_key: 'user_id', dependent: :destroy
+  has_many :posted_comments, foreign_key: 'user_id', dependent: :destroy
+  has_many :comments, dependent: :destroy, as: :commentable
   has_many :client_orgs, class_name: 'Org', foreign_key: :contact_id
   has_many :coaching_engagements, class_name: 'Engagement', foreign_key: :coach_id
   has_many :apps, through: :client_orgs
@@ -15,4 +16,17 @@ class User < ActiveRecord::Base
   enum comment_type: []
 
   default_scope { order('name') }
+
+  def participating_engagements
+    case
+    when student?
+      [developing_engagement]
+    when client?
+      client_engagements
+    when coach?
+      coaching_engagements
+    else
+      []
+    end
+  end
 end
